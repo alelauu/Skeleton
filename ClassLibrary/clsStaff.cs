@@ -12,7 +12,7 @@ namespace ClassLibrary
         public string Number { get; set; }
         public string PostCode { get; set; }
         public string Email { get; set; }
-        public string Name { get; set; }
+        public string FullName { get; set; }
         public string StaffId { get; set; }
     }
 }

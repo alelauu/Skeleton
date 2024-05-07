@@ -111,7 +111,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void NamePropertyOK()
+        public void FullNamePropertyOK()
         {
             //Creates a new instance of the Staff class
 
@@ -122,10 +122,10 @@ namespace Testing4
             String TestStaff = "Abbie";
 
             //Assign the data to the property
-            NewStaff.Name = TestStaff;
+            NewStaff.FullName = TestStaff;
 
             //Tests to see that the values are equal
-            Assert.AreEqual(NewStaff.Name, TestStaff);
+            Assert.AreEqual(NewStaff.FullName, TestStaff);
         }
 
         [TestMethod]
