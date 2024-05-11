@@ -165,7 +165,7 @@ namespace Testing4
             Boolean Found = false;
         
             //Creates some test data to assign to the property
-            Int32 StaffId = 2;
+            Int32 StaffId = 6;
 
             //Invokes the "Find" method
            Found = NewStaff.Find(StaffId);
@@ -193,13 +193,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.StaffId != 3)
+            if (NewStaff.StaffId != 6)
             {
                 OK = false;
             }
@@ -224,13 +224,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.StartDate != Convert.ToDateTime("9/05/2024"))
+            if (NewStaff.StartDate != Convert.ToDateTime("07/01/2019"))
             {
                 OK = false;
             }
@@ -256,13 +256,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.Number != "07497070472")
+            if (NewStaff.Number != "07497070476")
             {
                 OK = false;
             }
@@ -288,13 +288,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.PostCode != "LE1 5AN")
+            if (NewStaff.PostCode != "LE1 7AN")
             {
                 OK = false;
             }
@@ -319,13 +319,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.Email != "P2765365@my365.dmu.ac.uk")
+            if (NewStaff.Email != "P1234567@my365.dmu.ac.uk")
             {
                 OK = false;
             }
@@ -351,13 +351,13 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.FullName != "Sharon")
+            if (NewStaff.FullName != "Sally")
             {
                 OK = false;
             }
@@ -383,7 +383,7 @@ namespace Testing4
             Boolean OK = true;
 
             //Creates some test data to assign to the method
-            Int32 StaffId = 3;
+            Int32 StaffId = 6;
 
             //Invokes the method
             Found = NewStaff.Find(StaffId);

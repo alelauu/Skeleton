@@ -9,16 +9,16 @@ namespace ClassLibrary
 
 
         // Original Get and set methods
-       // public int StaffId { get; set; }
+        // public int StaffId { get; set; }
 
-      //  public bool IsOnline { get; set; }
+        //  public bool IsOnline { get; set; }
 
-     //   public DateTime StartDate { get; set; }
+        //   public DateTime StartDate { get; set; }
 
-      //  public string Number { get; set; }
-      //  public string PostCode { get; set; }
-     //   public string Email { get; set; }
-     //   public string FullName { get; set; }
+        //  public string Number { get; set; }
+        //  public string PostCode { get; set; }
+        //   public string Email { get; set; }
+        //   public string FullName { get; set; }
 
         //Private data variable declared for the staff id property
         private Int32 mStaffId;
@@ -37,7 +37,7 @@ namespace ClassLibrary
                 //Allows data into the property
                 mStaffId = value;
             }
-        }  
+        }
         //Private data variable declared for the start date property
         private DateTime mStartDate;
         public DateTime StartDate
@@ -117,7 +117,7 @@ namespace ClassLibrary
             {
                 //Sends the data out of the property
 
-                return mEmail ;
+                return mEmail;
             }
 
             set
@@ -146,21 +146,44 @@ namespace ClassLibrary
         }
 
 
-        public bool Find(int staffId)
+        public bool Find(int StaffId)
         {
-            // Sets the private variable to the test value
-            mStaffId = 3;
-            mStartDate = Convert.ToDateTime("9/05/2024");
-            mIsOnline = true;
-            mNumber = "07497070472";
-            mPostCode = "LE1 5AN";
-            mEmail = "P2765365@my365.dmu.ac.uk";
-            mFullName = "Sharon";
-            //Always return true
-            return true;
+
+            // Creates an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add a new parameter for the Staff Id to look for
+            DB.AddParameter("@StaffId", StaffId);
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffId");
+
+            //If a record is found...
+            if (DB.Count == 1)
+            {
+                //Copy the data in the database and assign them to the private data members(varibles) above
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mNumber = Convert.ToString(DB.DataTable.Rows[0]["Number"]);
+                mStartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StartDate"]);
+                mIsOnline = Convert.ToBoolean(DB.DataTable.Rows[0]["IsOnline"]);
+
+
+
+                //Always return true
+                return true;
+            }
+            //otherwise if nothing is found:
+            else
+            {
+                //This will indicate that something is wrong
+                return false;
+            }
+
+
+
         }
-
-
-
     }
 }
