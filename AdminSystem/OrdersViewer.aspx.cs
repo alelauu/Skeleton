@@ -17,7 +17,10 @@ public partial class _1Viewer : System.Web.UI.Page
         //get data from session object
         OrderOne = (clsOrder)Session["OrderOne"];
         //display the Order Status for this entry 
-         Response.Write(OrderOne.OrderStatus);
-
+        Response.Write(OrderOne.OrderStatus);
+        Response.Write(OrderOne.OrderID);
+        Response.Write(OrderOne.CustomerID);
+        Response.Write(OrderOne.OrderDate);
+        Response.Write(OrderOne.IsReturned);
     }
 }

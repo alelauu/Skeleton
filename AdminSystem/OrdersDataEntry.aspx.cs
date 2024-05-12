@@ -20,6 +20,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsOrder OrderOne = new clsOrder();
         //capture the order status
         OrderOne.OrderStatus = txtOrderStatus.Text;
+        OrderOne.OrderID = Convert.ToInt32(txtOrderID.Text);
+        OrderOne.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        OrderOne.OrderDate = Convert.ToDateTime(DateTime.Now);
+        OrderOne.IsReturned = chkIsReturned.Checked;
+        
         //store the order in the session object
         Session["OrderOne"] = OrderOne;
         //navigate to the view page
