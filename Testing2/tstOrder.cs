@@ -70,5 +70,103 @@ namespace Testing2
             Assert.AreEqual(OrderOne.OrderStatus, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder OrderOne = new clsOrder();
+            //create a Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method 
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = OrderOne.Find(OrderID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestOrderIDFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder OrderOne = new clsOrder();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method 
+            Found = OrderOne.Find(OrderID);
+            // check the order ID
+            if (OrderOne.OrderID != 21)
+            {
+
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if(OrderOne.CustomerID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderDateFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if(OrderOne.OrderDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderStatusFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if (OrderOne.OrderStatus != "processed")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+             
+        }
+
+        [TestMethod]
+        public void TestIsReturnedFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if (OrderOne.IsReturned != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
