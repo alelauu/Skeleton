@@ -82,5 +82,125 @@ namespace Testing2
             OrderLineOne.TotalPrice = TestData;
             Assert.AreEqual(OrderLineOne.TotalPrice, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestOrderItemIDFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.OrderItemID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderIDFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.OrderID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductIDFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.ProductID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.Quantity != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.Product != "iphone 14")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestOrderCompleteFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.OrderComplete != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestTotalPriceFound()
+        {
+            clsOrderLine OrderLineOne = new clsOrderLine();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderItemID = 21;
+            Found = OrderLineOne.Find(OrderItemID);
+            if (OrderLineOne.TotalPrice != 16.81m)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        
+
     }
 }
