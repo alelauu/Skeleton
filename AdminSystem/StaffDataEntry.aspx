@@ -2,114 +2,121 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" id="lblStaffId" tabindex="0" title="Staff ID">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title> Staff Form
+    </title>
     <style type="text/css">
+       
         .auto-style1 {
             z-index: 1;
-            left: 99px;
-            top: 50px;
+            left: 10px;
+            top: 17px;
             position: absolute;
-            width: 203px;
-            height: 18px;
-            right: 1529px;
+            height: 19px;
+            width: 114px;
         }
         .auto-style2 {
-            z-index: 1;
-            left: 10px;
-            top: 53px;
             position: absolute;
-            right: 704px;
-        }
-        .auto-style3 {
-            top: 85px;
+            top: 13px;
+            left: 105px;
+            z-index: 1;
+            width: 130px;
+            height: 20px;
         }
         .auto-style4 {
-            top: 116px;
+            z-index: 1;
+            left: 15px;
+            top: 250px;
+            position: absolute;
         }
+       
         .auto-style5 {
-            top: 147px;
+            bottom: 598px;
         }
         .auto-style6 {
-            top: 181px;
+            z-index: 1;
+            left: 105px;
+            top: 43px;
+            position: absolute;
         }
         .auto-style7 {
-            top: 218px;
+            left: 105px;
+            top: 166px;
         }
         .auto-style8 {
-            text-align: justify;
+            position: absolute;
+            top: 14px;
+            left: 265px;
+            z-index: 1;
+        }
+        .auto-style9 {
+            left: 105px;
+            top: 73px;
+        }
+        .auto-style10 {
+            right: 744px;
         }
         .auto-style11 {
-            position: absolute;
-            top: 49px;
-            left: 322px;
+            left: 105px;
+            top: 104px;
         }
+        .auto-style12 {
+            left: 105px;
+            top: 135px;
+        }
+        .auto-style13 {
+            right: 719px;
+        }
+       
+        .auto-style15 {
+            height: 325px;
+        }
+       
+        .auto-style16 {
+            position: absolute;
+            top: 286px;
+            left: 110px;
+            z-index: 1;
+        }
+       
+        .auto-style17 {
+            right: 1097px;
+        }
+       
     </style>
 </head>
-<body style="height: 586px">
-    
-
-
-    <html xmlns="http://www.w3.org/1999/xhtml" id="lblStaffId" tabindex="0" title="Staff ID">
-    <body style="height: 586px">
-    
-
-
+<body>
     <form id="form1" runat="server">
-        <asp:Label ID="lblName" runat="server" style="z-index: 1; left: 10px; top: 90px; position: absolute; width: 89px" Text="Full Name" height="18px"></asp:Label>
-    <asp:TextBox ID="txtStaffId" runat="server" OnTextChanged="TextBox1_TextChanged" CssClass="auto-style1"></asp:TextBox>
-        <div>
-            <asp:Label ID="lblStaffId" runat="server" height="18px" Text="Staff ID" width="89px" CssClass="auto-style2"></asp:Label>
-        </div>
-</body>
-</html>
-    <p class="auto-style8">
-        <asp:TextBox ID="txtFullName" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; position: absolute; width: 203px; left: 98px; right: 268px;" height="22px" CssClass="auto-style3"></asp:TextBox>
-        <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 10px; top: 121px; position: absolute; width: 89px;" Text="Email" height="18px"></asp:Label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnFind" runat="server" CssClass="auto-style11" OnClick="btnFind_Click" style="z-index: 1" Text="Find" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </p>
-    <p>
-        <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 99px; position: absolute; width: 203px" height="22px" CssClass="auto-style4"></asp:TextBox>
-    </p>
-    <p>
-        <asp:Label ID="lblPostCode" runat="server" style="z-index: 1; left: 10px; top: 152px; position: absolute; height: 18px; width: 89px" Text="Post Code"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 99px; position: absolute" height="22px" width="203px" CssClass="auto-style5"></asp:TextBox>
-    </p>
-    <div style="margin-left: 40px">
-        <asp:Label ID="lblNumber" runat="server" style="z-index: 1; left: 10px; top: 186px; position: absolute" Text="Number" width="89px" height="18px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtNumber" runat="server" style="z-index: 1; left: 99px; position: absolute" height="22px" width="203px" CssClass="auto-style6"></asp:TextBox>
-    </div>
-    <p>
-        <asp:Label ID="lblStartDate" runat="server" style="z-index: 1; left: 10px; top: 223px; position: absolute" Text="Start Date" width="89px" height="18px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtStartDate" runat="server" style="z-index: 1; left: 99px; position: absolute; width: 203px;" height="22px" CssClass="auto-style7"></asp:TextBox>
-    </p>
-    <p style="margin-left: 120px">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 305px; position: absolute; height: 12px;"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 96px; top: 335px; position: absolute; width: 57px; height: 24px" Text="Cancel" />
-        <asp:CheckBox ID="chkIsOnline" runat="server" style="z-index: 1; left: 75px; top: 269px; position: absolute; width: 81px;" Text="Is Online" />
-    </p>
-    <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnOK" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 11px; top: 335px; position: absolute; height: 24px; width: 57px" Text="OK" />
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
+        <div class="auto-style15">
+
+  <asp:TextBox ID="txtFullName" runat="server" height="22px" width="128px" CssClass="auto-style6"></asp:TextBox>
+  <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; position: absolute" height="22px" width="128px" CssClass="auto-style9"></asp:TextBox>
+  <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; position: absolute" height="22px" width="128px" CssClass="auto-style11"></asp:TextBox>
+  <asp:TextBox ID="txtNumber" runat="server" style="z-index: 1; position: absolute" height="22px" width="128px" CssClass="auto-style12"></asp:TextBox>
+  <asp:TextBox ID="txtStartDate" runat="server" style="z-index: 1; position: absolute" height="22px" width="128px" CssClass="auto-style7"></asp:TextBox>   
+  <asp:CheckBox ID="chkIsOnline" runat="server" style="z-index: 1; left: 23px; top: 208px; position: absolute" Text="Is Online" />
+  <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 21px; top: 286px; position: absolute" Text="OK" height="26px" width="60px" CssClass="auto-style17" />
+  <asp:Button ID="btnCancel" runat="server" CssClass="auto-style16" Text="Cancel" height="26px" width="60px" />
+
+  
+
+  <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" CssClass="auto-style1"></asp:Label>
+  <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 10px; top: 77px; position: absolute" Text="Email" height="19px" width="114px"></asp:Label>
+  <asp:Label ID="lblAddress" runat="server" style="z-index: 1; left: 10px; top: 108px; position: absolute; width: 123px;" Text="Address" height="19px" CssClass="auto-style10"></asp:Label>
+  <asp:Label ID="lblNumber" runat="server" style="z-index: 1; left: 10px; top: 139px; position: absolute; width: 141px;" Text="Number" height="19px"></asp:Label>
+  <asp:Label ID="lblError" runat="server" CssClass="auto-style4"></asp:Label>
+  <asp:Label ID="lblStartDate" runat="server" style="z-index: 1; left: 10px; top: 170px; position: absolute; width: 148px;" Text="Start Date" CssClass="auto-style13"></asp:Label>
+  <asp:Label ID="lblFullName" runat="server" style="z-index: 1; left: 10px; top: 47px; position: absolute; height: 19px; width: 114px;" Text="Full Name" CssClass="auto-style5"></asp:Label>
+            <asp:TextBox ID="txtStaffId" runat="server" CssClass="auto-style2" height="22px" width="128px"></asp:TextBox>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" CssClass="auto-style8" Text="Find" OnClick="btnFind_Click" />
+            
+            
+             
+            
+            
+             </div>
     </form>
-
 </body>
 </html>
-
-

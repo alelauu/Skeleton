@@ -75,7 +75,7 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void PostCodePropertyOK()
+        public void AddressPropertyOK()
         {
             //Creates a new instance of the Staff class
 
@@ -83,13 +83,13 @@ namespace Testing4
 
 
             //Creates some test data to assign to the property
-            String TestStaff = "LE1 5AN";
+            String TestStaff = "The glassworks, Leicester,LE1 5AN";
 
             //Assign the data to the property
-            NewStaff.PostCode = TestStaff;
+            NewStaff.Address = TestStaff;
 
             //Tests to see that the values are equal
-            Assert.AreEqual(NewStaff.PostCode, TestStaff);
+            Assert.AreEqual(NewStaff.Address, TestStaff);
         }
 
 
@@ -149,7 +149,7 @@ namespace Testing4
         }
 
 
-       
+
 
 
         /***********FIND METHOD***********/
@@ -163,12 +163,12 @@ namespace Testing4
 
             //Creates a Boolean variable to store the results of the validation
             Boolean Found = false;
-        
+
             //Creates some test data to assign to the property
             Int32 StaffId = 6;
 
             //Invokes the "Find" method
-           Found = NewStaff.Find(StaffId);
+            Found = NewStaff.Find(StaffId);
 
             //Tests to see that the values are equal
             Assert.IsTrue(Found);
@@ -273,7 +273,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void TestPostCodeFound()
+        public void TestAddressFound()
         {
             //Creates a new instance of the Staff class
 
@@ -294,7 +294,7 @@ namespace Testing4
             Found = NewStaff.Find(StaffId);
 
             //Checks the staff ID
-            if (NewStaff.PostCode != "LE1 7AN")
+            if (NewStaff.Address != "The glassworks, Leicester,LE1 5AN")
             {
                 OK = false;
             }
@@ -398,6 +398,4 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
     }
-    }
-
-
+}
