@@ -7,19 +7,6 @@ namespace ClassLibrary
         //Private variables are initialised for the properties
 
 
-
-        // Original Get and set methods
-        // public int StaffId { get; set; }
-
-        //  public bool IsOnline { get; set; }
-
-        //   public DateTime StartDate { get; set; }
-
-        //  public string Number { get; set; }
-        //  public string PostCode { get; set; }
-        //   public string Email { get; set; }
-        //   public string FullName { get; set; }
-
         //Private data variable declared for the staff id property
         private Int32 mStaffId;
         public Int32 StaffId
@@ -185,5 +172,200 @@ namespace ClassLibrary
 
 
         }
+
+
+        public string Valid(string fullName, string email, string address, string number, string startDate)
+        {
+            //Creates a string variable to store the error 
+            string Error = "";
+            //Creates a temporary variable to store the date values
+            DateTime DateTemp;
+
+            //if the fullName is blank
+            if (fullName.Length == 0)
+            {
+                //Records the error
+                Error = Error + "The full name should not be blank : ";
+
+            }
+            //if the fullName is greater than 50 characters
+            if (fullName.Length > 50)
+            {
+                //Records the error
+                Error = Error + "The full name should not be more than 50 characters : ";
+            }
+
+            // Creates an instance of DateTime to compare with DateTemp
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //Copies the startDate value to te DateTemp variable
+                DateTemp = Convert.ToDateTime(startDate);
+
+                //Checks to see if the start date is less than todays date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //Records the error
+                    Error = Error + "The date can't be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //Records the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+
+
+            }
+            catch
+            {
+                //Records the error
+                Error = Error + "The date was not valid : ";
+            }
+
+            //if the Email is blank
+            if (email.Length == 0)
+            {
+                //Records the error
+                Error = Error + "The email should not be blank : ";
+
+            }
+            //if the Email is greater than 50 characters
+            if (email.Length > 255)
+            {
+                //Records the error
+                Error = Error + "The email should not be more than 255 characters : ";
+            }
+            //if the address is blank
+            if (address.Length == 0)
+            {
+                //Records the error
+                Error = Error + "The full name should not be blank : ";
+
+            }
+            //if the address is greater than 50 characters
+            if (address.Length > 255)
+            {
+                //Records the error
+                Error = Error + "The full name should not be more than 50 characters : ";
+            }
+
+            //if the number is blank
+            if (number.Length == 0)
+            {
+                //Records the error
+                Error = Error + "The full name should not be blank : ";
+
+            }
+            //if the numnber is greater than 11 characters
+            if (number.Length > 11)
+            {
+                //Records the error
+                Error = Error + "The full name should not be more than 50 characters : ";
+            }
+            //Returns any error messages
+            return Error;
+
+
+        }
+
     }
+
+    public string Valid(string fullName, string email, string address, string number, string startDate)
+    {
+        //Creates a string variable to store the error 
+        string Error = "";
+        //Creates a temporary variable to store the date values
+        DateTime DateTemp;
+
+        //if the fullName is blank
+        if (fullName.Length == 0)
+        {
+            //Records the error
+            Error = Error + "The full name should not be blank : ";
+
+        }
+        //if the fullName is greater than 50 characters
+        if (fullName.Length > 50)
+        {
+            //Records the error
+            Error = Error + "The full name should not be more than 50 characters : ";
+        }
+
+        // Creates an instance of DateTime to compare with DateTemp
+        DateTime DateComp = DateTime.Now.Date;
+
+        try
+        {
+            //Copies the startDate value to te DateTemp variable
+            DateTemp = Convert.ToDateTime(startDate);
+
+            //Checks to see if the start date is less than todays date
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //Records the error
+                Error = Error + "The date can't be in the past : ";
+            }
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //Records the error
+                Error = Error + "The date cannot be in the future : ";
+            }
+
+
+        }
+        catch
+        {
+            //Records the error
+            Error = Error + "The date was not valid : ";
+        }
+
+        //if the Email is blank
+        if (email.Length == 0)
+        {
+            //Records the error
+            Error = Error + "The email should not be blank : ";
+
+        }
+        //if the Email is greater than 50 characters
+        if (email.Length > 255)
+        {
+            //Records the error
+            Error = Error + "The email should not be more than 255 characters : ";
+        }
+        //if the address is blank
+        if (address.Length == 0)
+        {
+            //Records the error
+            Error = Error + "The full name should not be blank : ";
+
+        }
+        //if the address is greater than 50 characters
+        if (address.Length > 255)
+        {
+            //Records the error
+            Error = Error + "The full name should not be more than 50 characters : ";
+        }
+
+        //if the number is blank
+        if (number.Length == 0)
+        {
+            //Records the error
+            Error = Error + "The full name should not be blank : ";
+
+        }
+        //if the numnber is greater than 11 characters
+        if (number.Length > 11)
+        {
+            //Records the error
+            Error = Error + "The full name should not be more than 50 characters : ";
+        }
+        //Returns any error messages
+        return Error;
+
+
+    }
+
+
+}
 }
