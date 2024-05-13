@@ -92,21 +92,21 @@ namespace ClassLibrary
             }
         }
 
-        private string mPostCode;
-        public string PostCode
+        private string mAddress;
+        public string Address
         {
             get
             {
                 //Sends the data out of the property
 
-                return mPostCode;
+                return mAddress;
             }
 
             set
             {
 
                 //Allows data into the property
-                mPostCode = value;
+                mAddress = value;
             }
         }
 
@@ -165,7 +165,7 @@ namespace ClassLibrary
                 mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
                 mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
                 mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mNumber = Convert.ToString(DB.DataTable.Rows[0]["Number"]);
                 mStartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["StartDate"]);
                 mIsOnline = Convert.ToBoolean(DB.DataTable.Rows[0]["IsOnline"]);

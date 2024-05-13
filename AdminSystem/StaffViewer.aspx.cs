@@ -19,7 +19,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //Display the full name for the entry
         Response.Write(NewStaff.FullName);
         Response.Write(NewStaff.Email);
-        Response.Write(NewStaff.PostCode);
+        Response.Write(NewStaff.Address);
         Response.Write(NewStaff.Number);
         Response.Write(NewStaff.StartDate);
         Response.Write(NewStaff.IsOnline);
