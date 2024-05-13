@@ -105,25 +105,42 @@ namespace ClassLibrary
 
 
 
-  //    public bool OrderComplete { get; set; }
-  //    public int OrderItemID { get; set; }
-  //    public int OrderID { get; set; }
-  //    public int ProductID { get; set; }
-  //    public int Quantity { get; set; }
-  //    public string Product { get; set; }
-  //    public decimal TotalPrice { get; set; }
+        //    public bool OrderComplete { get; set; }
+        //    public int OrderItemID { get; set; }
+        //    public int OrderID { get; set; }
+        //    public int ProductID { get; set; }
+        //    public int Quantity { get; set; }
+        //    public string Product { get; set; }
+        //    public decimal TotalPrice { get; set; }
 
-        public bool Find(int orderItemID)
+        /**** Find Method ****/
+        public bool Find(int OrderItemID)
         {
-            mOrderItemID = 21;
-            mOrderID = 21;
-            mProductID = 21;
-            mQuantity = 21;
-            mProduct = "iphone 14";
-            mOrderComplete = true;
-            mTotalPrice = 16.81m;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the order item id to search for 
+            DB.AddParameter("@OrderItemID", OrderItemID);
+            //Execute the stored procedure
+            DB.Execute("sproc_tblOrderLine_FilterByOrderItemID");
+            //if one record is found (there should either be one or zero
+            if (DB.Count == 1)
+            {
+                mOrderItemID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderItemID"]);
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mProduct = Convert.ToString(DB.DataTable.Rows[0]["Product"]);
+                mOrderComplete = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderComplete"]);
+                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Total Price"]);
+                //return everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                return false;
+            }
 
-            return true;
         }
     }
 }
