@@ -41,4 +41,35 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Redirects back to the view:
         Response.Redirect("StaffViewer.aspx");
     }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        //Creates an instance of the Staff class
+
+        clsStaff NewStaff = new clsStaff();
+
+        // Creates a variable to store the primary key
+        Int32 StaffId;
+
+        //Creates a variable to store the result of the find operation
+        Boolean Found = false;
+
+        //Retrieves the primary key entered by the user:
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+
+        //Finds the record:
+        Found = NewStaff.Find(StaffId);
+
+        //If found:
+        if(Found == true)
+        {
+            //Display the values
+            txtFullName.Text = NewStaff.FullName;
+            txtEmail.Text = NewStaff.Email;
+            txtPostCode.Text = NewStaff.PostCode;
+            txtNumber.Text = NewStaff.Number;
+            txtStartDate.Text = NewStaff.PostCode;
+            chkIsOnline.Checked = NewStaff.IsOnline;
+        }
+    }
 }
