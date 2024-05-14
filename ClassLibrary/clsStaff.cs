@@ -240,28 +240,28 @@ namespace ClassLibrary
             if (address.Length == 0)
             {
                 //Records the error
-                Error = Error + "The full name should not be blank : ";
+                Error = Error + "The address  should not be blank : ";
 
             }
             //if the address is greater than 50 characters
             if (address.Length > 255)
             {
                 //Records the error
-                Error = Error + "The full name should not be more than 50 characters : ";
+                Error = Error + "The address should not be more than 255 characters : ";
             }
 
             //if the number is blank
             if (number.Length == 0)
             {
                 //Records the error
-                Error = Error + "The full name should not be blank : ";
+                Error = Error + "The number should not be blank : ";
 
             }
             //if the numnber is greater than 11 characters
             if (number.Length > 11)
             {
                 //Records the error
-                Error = Error + "The full name should not be more than 50 characters : ";
+                Error = Error + "The number should not be more than 11 characters : ";
             }
             //Returns any error messages
             return Error;
