@@ -110,11 +110,32 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assumed)
             Boolean OK = true;
             //creating some test data
-            Int32 ProductID = 4;
+            Int32 ProductID = 8;
             //invoking the method
             Found = ProductOne.Find(ProductID);
             //checking the product id
-            if (ProductOne.ProductID != 4)
+            if (ProductOne.ProductID != 8)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+            clsProduct ProductOne = new clsProduct();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assumed)
+            Boolean OK = true;
+            //creating some test data
+            Int32 ProductID = 8;
+            //invoking the method
+            Found = ProductOne.Find(ProductID);
+            //checking the product id
+            if (ProductOne.ProductName != "Phone (2a)")
             {
                 OK = false;
             }
@@ -131,11 +152,53 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assumed)
             Boolean OK = true;
             //creating some test data
-            Int32 ProductID = 4;
+            Int32 ProductID = 8;
             //invoking the method
             Found = ProductOne.Find(ProductID);
             //checking the product id
-            if (ProductOne.ProductBrand != "Apple")
+            if (ProductOne.ProductBrand != "Nothing")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductColourFound()
+        {
+            clsProduct ProductOne = new clsProduct();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assumed)
+            Boolean OK = true;
+            //creating some test data
+            Int32 ProductID = 8;
+            //invoking the method
+            Found = ProductOne.Find(ProductID);
+            //checking the product id
+            if (ProductOne.ProductColour != "Black")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductCapacityFound()
+        {
+            clsProduct ProductOne = new clsProduct();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assumed)
+            Boolean OK = true;
+            //creating some test data
+            Int32 ProductID = 8;
+            //invoking the method
+            Found = ProductOne.Find(ProductID);
+            //checking the product id
+            if (ProductOne.ProductCapacity != "128GB")
             {
                 OK = false;
             }
@@ -152,7 +215,7 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assumed)
             Boolean OK = true;
             //creating some test data
-            Int32 ProductID = 4;
+            Int32 ProductID = 8;
             //invoking the method
             Found = ProductOne.Find(ProductID);
             //checking the product id
@@ -173,11 +236,32 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assumed)
             Boolean OK = true;
             //creating some test data
-            Int32 ProductID = 4;
+            Int32 ProductID = 8;
             //invoking the method
             Found = ProductOne.Find(ProductID);
             //checking the product id
-            if (ProductOne.ProductPrice != Convert.ToInt32(999))
+            if (ProductOne.ProductPrice != Convert.ToInt32(319))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAmountInStockFound()
+        {
+            clsProduct ProductOne = new clsProduct();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assumed)
+            Boolean OK = true;
+            //creating some test data
+            Int32 ProductID = 8;
+            //invoking the method
+            Found = ProductOne.Find(ProductID);
+            //checking the product id
+            if (ProductOne.AmountInStock != 2)
             {
                 OK = false;
             }
