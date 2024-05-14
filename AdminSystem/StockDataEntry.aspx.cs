@@ -27,4 +27,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //redirecting
         Response.Redirect("StockViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsProduct ProductOne = new clsProduct();
+        Int32 ProductId;
+        Boolean Found = false;
+        ProductId = Convert.ToInt32(txtProductID.Text);
+        Found = ProductOne.Find(ProductId);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtProductName.Text = ProductOne.ProductName;
+            txtProductBrand.Text = ProductOne.ProductBrand;
+            txtProductColour.Text = ProductOne.ProductColour;
+            txtProductCapacity.Text = ProductOne.ProductCapacity;
+            txtProductPrice.Text = ProductOne.ProductPrice.ToString();
+            txtAmountInStock.Text = ProductOne.AmountInStock.ToString();
+            chkInStock.Checked = ProductOne.InStock;
+
+        }
+        else
+        {
+            lblError.Text = "ProductID does not exist";
+        }
+    }
 }
