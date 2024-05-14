@@ -25,18 +25,42 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Create a new instance of clsStaff
         clsStaff NewStaff = new clsStaff();
 
-        //Capturethe details
-        NewStaff.FullName = txtFullName.Text;
-        NewStaff.Email = txtEmail.Text;
-        NewStaff.Address = txtAddress.Text;
-        NewStaff.Number = txtNumber.Text;
-        NewStaff.StartDate = Convert.ToDateTime(DateTime.Now);
-        NewStaff.IsOnline = chkIsOnline.Checked;
-        Session["NewStaff"] = NewStaff;
+        //Capture the details
+        string FullName = txtFullName.Text;
+        string Email = txtEmail.Text;
+        string Address = txtAddress.Text;
+        string Number = txtNumber.Text;
+        string StartDate =txtStartDate.Text;
+        string IsOnline = chkIsOnline.Text;
 
+        //variable to store any error messages
+        string Error = "";
+
+        //validate the data 
+        Error = NewStaff.Valid(FullName, Email, Address, Number, StartDate);
+        if(Error == "")
+        {
+        //Capture the details
+        NewStaff.FullName = FullName;
+        NewStaff.Email = Email;
+        NewStaff.Address = Address;
+        NewStaff.Number = Number;
+        NewStaff.StartDate = Convert.ToDateTime(StartDate);
+        Session["NewStaff"] = NewStaff;
 
         //Redirects back to the view:
         Response.Redirect("StaffViewer.aspx");
+
+        }
+        else
+        {
+            //Display the error message
+            lblError.Text = Error;
+        }
+        
+
+
+        
     }
 
 

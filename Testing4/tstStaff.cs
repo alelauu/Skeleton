@@ -1069,7 +1069,7 @@ namespace Testing4
 
         }
         [TestMethod]
-        public void StartDateExtremeLessOne()
+        public void StartDateMinLessOne()
         {
             //Creates a new instance of the Staff class
 
