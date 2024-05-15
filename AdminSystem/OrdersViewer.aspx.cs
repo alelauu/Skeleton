@@ -20,6 +20,8 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(OrderOne.OrderStatus);
         Response.Write(OrderOne.OrderID);
         Response.Write(OrderOne.CustomerID);
+        Response.Write(OrderOne.ProductID);
+        Response.Write(OrderOne.Quantity);
         Response.Write(OrderOne.OrderDate);
         Response.Write(OrderOne.IsReturned);
     }

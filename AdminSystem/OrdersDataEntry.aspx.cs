@@ -10,7 +10,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
 
@@ -22,6 +22,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         OrderOne.OrderStatus = txtOrderStatus.Text;
         OrderOne.OrderID = Convert.ToInt32(txtOrderID.Text);
         OrderOne.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        OrderOne.ProductID = Convert.ToInt32(txtProductID.Text);
+        OrderOne.Quantity = Convert.ToInt32(txtQuantity.Text);
         OrderOne.OrderDate = Convert.ToDateTime(DateTime.Now);
         OrderOne.IsReturned = chkIsReturned.Checked;
         

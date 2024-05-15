@@ -71,6 +71,24 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void ProductIDPropertyOK()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Int32 TestData = 1;
+            OrderOne.ProductID = TestData;
+            Assert.AreEqual(OrderOne.ProductID, TestData);
+        }
+
+        [TestMethod]
+        public void QuantityPropertyOK()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Int32 TestData = 1;
+            OrderOne.Quantity = TestData;
+            Assert.AreEqual(OrderOne.Quantity, TestData);
+        }
+
+        [TestMethod]
         public void FindMethodOK()
         {
             //create an instance of the class we want to create
@@ -163,6 +181,36 @@ namespace Testing2
             Int32 OrderID = 21;
             Found = OrderOne.Find(OrderID);
             if (OrderOne.IsReturned != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductIDFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if (OrderOne.ProductID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+            clsOrder OrderOne = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = OrderOne.Find(OrderID);
+            if (OrderOne.Quantity != 21)
             {
                 OK = false;
             }
