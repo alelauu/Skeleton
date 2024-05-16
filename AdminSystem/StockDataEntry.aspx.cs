@@ -13,20 +13,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //creating a new instance of clsProduct
         clsProduct ProductOne = new clsProduct();
         //capturing the data
-        ProductOne.ProductName = txtProductName.Text;
-        ProductOne.ProductBrand = txtProductBrand.Text;
-        ProductOne.ProductColour = txtProductColour.Text;
-        ProductOne.ProductCapacity = txtProductCapacity.Text;
-        ProductOne.ProductPrice = Convert.ToDecimal(txtProductPrice.Text);
-        ProductOne.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
+        string ProductName = txtProductName.Text;
+        string ProductBrand = txtProductBrand.Text;
+        string ProductColour = txtProductColour.Text;
+        string ProductCapacity = txtProductCapacity.Text;
+        string ProductPrice = txtProductPrice.Text;
+        string DateAdded = txtDateAdded.Text;
         ProductOne.InStock = chkInStock.Checked;
 
-
-
-        //storing the address in the session object
-        Session["ProductOne"] = ProductOne;
-        //redirecting
-        Response.Redirect("StockViewer.aspx");
+        string Error = "";
+        Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
+        if (Error == "")
+        {
+            ProductOne.ProductName = ProductName;
+            ProductOne.ProductBrand = ProductBrand;
+            ProductOne.ProductColour = ProductColour;
+            ProductOne.ProductCapacity = ProductCapacity;
+            ProductOne.DateAdded = Convert.ToDateTime(DateAdded);
+            //storing the address in the session object
+            Session["ProductOne"] = ProductOne;
+            //redirecting
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
