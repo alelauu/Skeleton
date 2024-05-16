@@ -137,13 +137,50 @@ namespace ClassLibrary
             {
                 return false;
             }
-                
+
         }
 
- 
+        public string Valid(string orderStatus, string orderDate)
+        {
+            String Error = "";
+            //create a temporary variable to store the date values 
+            DateTime DateTemp;
+            //if the order Status is blank
+            if (orderStatus.Length == 0)
+            {
+                Error = Error + "The order status may not be blank : ";
 
-    
+            }
+            //if the order status is greater than 20 characters
+            if (orderStatus.Length > 20)
+            {
+                Error = Error + "The Order Status must be less than 20 charcters : ";
+            }
+            //create an instance of OrderDate to compare with DateTemp
+            //in the if statments
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the OrderDate value to the DateTemp Variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                //check to see if the date is less than todays date
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
 
 
+            return Error;
+        }
     }
 }

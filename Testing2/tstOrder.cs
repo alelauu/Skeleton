@@ -7,6 +7,11 @@ namespace Testing2
     [TestClass]
     public class tstOrder
     {
+        //good test data
+        //create some test data to pass the method 
+        string OrderDate = DateTime.Now.ToShortDateString();
+        string OrderStatus = "Processed";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -216,5 +221,179 @@ namespace Testing2
             }
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsOrder OrderOne = new clsOrder();
+            string Error = "";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        //First test ORder Status
+        [TestMethod] 
+        public void OrderStatusMinLessOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMin()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "a";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMinPlusOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "aa";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMaxLessOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "aaaaaaaaaaaaaaaaaaa";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMax()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "aaaaaaaaaaaaaaaaaaaa";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMid()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "aaaaaaaaaa";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMaxPlusOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "aaaaaaaaaaaaaaaaaaaaa";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusExtremeMax()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderStatus = "";
+            OrderStatus = OrderStatus.PadRight(100, 'a');
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateExtremeMin()
+        {
+            clsOrder OrderOne = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string OrderDate = TestDate.ToString();
+            //invoke method
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMinLessOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string OrderDate = TestDate.ToString();
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMin()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string OrderDate = TestDate.ToString();
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMinPlusOne()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string OrderDate = TestDate.ToString();
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateExtremeMax()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string OrderDate = TestDate.ToString();
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateInvalidData()
+        {
+            clsOrder OrderOne = new clsOrder();
+            String Error = "";
+            string OrderDate = "this is not a date!";
+            Error = OrderOne.Valid(OrderStatus, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        
+
     }
 }
