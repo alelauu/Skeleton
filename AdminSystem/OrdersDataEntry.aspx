@@ -17,6 +17,7 @@
         <asp:TextBox ID="txtCustomerID" runat="server" height="22px" style="z-index: 1; left: 158px; top: 91px; position: absolute" width="128px"></asp:TextBox>
         <p>
             <asp:TextBox ID="txtOrderDate" runat="server" height="22px" style="z-index: 1; top: 128px; position: absolute; left: 158px" width="128px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click1" style="z-index: 1; left: 321px; top: 57px; position: absolute; height: 26px; width: 59px" Text="Find" />
         </p>
         <p>
             <asp:Label ID="lblOrderDate" runat="server" style="z-index: 1; left: 29px; top: 131px; position: absolute" Text="Order Date" width="79px"></asp:Label>
@@ -41,6 +42,10 @@
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 29px; top: 347px; position: absolute; " Text="OK" height="26px" width="33" />
             <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 111px; top: 347px; position: absolute" Text="Cancel" />
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

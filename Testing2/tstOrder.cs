@@ -96,7 +96,7 @@ namespace Testing2
             //create a Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             //invoke the method
             Found = OrderOne.Find(OrderID);
             //test to see if the result is true
@@ -113,11 +113,11 @@ namespace Testing2
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             //invoke the method 
             Found = OrderOne.Find(OrderID);
             // check the order ID
-            if (OrderOne.OrderID != 21)
+            if (OrderOne.OrderID != 6)
             {
 
                 OK = false;
@@ -132,9 +132,9 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
-            if(OrderOne.CustomerID != 21)
+            if(OrderOne.CustomerID != 1818)
             {
                 OK = false;
             }
@@ -147,9 +147,9 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
-            if(OrderOne.OrderDate != Convert.ToDateTime("23/12/2022"))
+            if(OrderOne.OrderDate != Convert.ToDateTime("15/05/2023"))
             {
                 OK = false;
             }
@@ -162,9 +162,9 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
-            if (OrderOne.OrderStatus != "processed")
+            if (OrderOne.OrderStatus != "Processed")
             {
                 OK = false;
             }
@@ -178,7 +178,7 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
             if (OrderOne.IsReturned != true)
             {
@@ -193,9 +193,9 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
-            if (OrderOne.ProductID != 21)
+            if (OrderOne.ProductID != 1414)
             {
                 OK = false;
             }
@@ -208,9 +208,9 @@ namespace Testing2
             clsOrder OrderOne = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 21;
+            Int32 OrderID = 6;
             Found = OrderOne.Find(OrderID);
-            if (OrderOne.Quantity != 21)
+            if (OrderOne.Quantity != 11)
             {
                 OK = false;
             }
