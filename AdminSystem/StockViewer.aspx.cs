@@ -19,7 +19,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(ProductOne.ProductBrand);
         Response.Write(ProductOne.ProductColour);
         Response.Write(ProductOne.ProductCapacity);
-        Response.Write(ProductOne.AmountInStock);
+        Response.Write(ProductOne.DateAdded);
         Response.Write(ProductOne.InStock);
     }
 }

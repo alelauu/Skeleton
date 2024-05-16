@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ClassLibrary
 {
@@ -10,9 +11,7 @@ namespace ClassLibrary
         //public string ProductBrand { get; set; }
         //public string ProductColour { get; set; }
         //public string ProductCapacity { get; set; }
-        //public int AmountInStock { get; set; }
         //public bool InStock { get; set; }
-
         //private data member for the product id property
         private Int32 mProductID;
 
@@ -108,16 +107,16 @@ namespace ClassLibrary
             }
         }
 
-        private Int32 mAmountInStock;
-        public Int32 AmountInStock
+        private DateTime mDateAdded;
+        public DateTime DateAdded
         {
             get
             {
-                return mAmountInStock;
+                return mDateAdded;
             }
             set
             {
-                mAmountInStock = value;
+                mDateAdded = value;
             }
         }
 
@@ -148,9 +147,9 @@ namespace ClassLibrary
                 mProductBrand = Convert.ToString(DB.DataTable.Rows[0]["ProductBrand"]);
                 mProductColour = Convert.ToString(DB.DataTable.Rows[0]["ProductColour"]);
                 mProductCapacity = Convert.ToString(DB.DataTable.Rows[0]["ProductCapacity"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
                 mProductPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["ProductPrice"]);
-                mAmountInStock = Convert.ToInt32(DB.DataTable.Rows[0]["AmountInStock"]);
                 //return that everything worked OK
                 return true;
             }
@@ -160,6 +159,77 @@ namespace ClassLibrary
                 //return false indicating there is a problem
                 return false;
             }
+        }
+        
+        public String Valid(string productName, string productBrand, string productColour, string productCapacity, double productPrice, string dateAdded)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store the date values
+            DateTime DateTemp;
+            //if the productName is blank
+            if (productName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The product name may not be blank : ";
+
+            }
+            if (productName.Length > 30)
+            {
+                Error = Error + "The product name must be less than 30 characters : ";
+            }
+
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateComp)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            if (productBrand.Length == 0)
+            {
+                //record the error
+                Error = Error + "The product brand may not be blank : ";
+
+            }
+            if (productBrand.Length > 15)
+            {
+                Error = Error + "The product brand must be less than 15 characters : ";
+            }
+
+            if (productColour.Length == 0)
+            {
+                //record the error
+                Error = Error + "The product colour may not be blank : ";
+
+            }
+            if (productColour.Length > 20)
+            {
+                Error = Error + "The product colour must be less than 20 characters : ";
+            }
+
+            if (productCapacity.Length == 0)
+            {
+                //record the error
+                Error = Error + "The product capacity may not be blank : ";
+
+            }
+            if (productCapacity.Length > 5)
+            {
+                Error = Error + "The product colour must be less than 5 characters : ";
+            }
+            return Error;
         }
     }
 }
