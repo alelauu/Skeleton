@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 
 namespace ClassLibrary
 {
@@ -112,18 +113,34 @@ namespace ClassLibrary
 
         public bool Find(int orderID)
         {
-            mOrderID = 21;
-            mCustomerID = 21;
-            mProductID = 21;
-            mQuantity = 21;
-            mOrderDate = Convert.ToDateTime("23/12/2022");
-            mOrderStatus = "processed";
-            mIsReturned = true;
-            //always return true 
-            return true;
+            //create an instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameters for the order id to search for 
+            DB.AddParameter("@OrderID", orderID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderID");
+            //if one record is found (there should either be one or zero)
+            if (DB.Count == 1)
+            {
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
+                mIsReturned = Convert.ToBoolean(DB.DataTable.Rows[0]["IsReturned"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if not record was found
+            else
+            {
+                return false;
+            }
+                
         }
 
-        
+ 
 
     
 
