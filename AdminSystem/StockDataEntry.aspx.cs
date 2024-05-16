@@ -14,10 +14,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsProduct ProductOne = new clsProduct();
         //capturing the data
         ProductOne.ProductName = txtProductName.Text;
-        ProductOne.ProductBrand = txtAmountInStock.Text;
+        ProductOne.ProductBrand = txtProductBrand.Text;
         ProductOne.ProductColour = txtProductColour.Text;
         ProductOne.ProductCapacity = txtProductCapacity.Text;
-        ProductOne.AmountInStock = Convert.ToInt32(txtAmountInStock.Text); 
+        ProductOne.ProductPrice = Convert.ToDecimal(txtProductPrice.Text);
+        ProductOne.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
         ProductOne.InStock = chkInStock.Checked;
 
 
@@ -44,7 +45,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtProductColour.Text = ProductOne.ProductColour;
             txtProductCapacity.Text = ProductOne.ProductCapacity;
             txtProductPrice.Text = ProductOne.ProductPrice.ToString();
-            txtAmountInStock.Text = ProductOne.AmountInStock.ToString();
+            txtDateAdded.Text = ProductOne.DateAdded.ToString();
             chkInStock.Checked = ProductOne.InStock;
 
         }
