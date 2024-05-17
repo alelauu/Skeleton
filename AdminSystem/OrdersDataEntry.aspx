@@ -27,7 +27,7 @@
         <asp:Label ID="lblOrderStatus" runat="server" style="z-index: 1; left: 29px; top: 167px; position: absolute" Text="Order Status" width="79px"></asp:Label>
         <asp:TextBox ID="txtOrderStatus" runat="server" height="22px" style="z-index: 1; left: 158px; top: 166px; position: absolute" width="128px"></asp:TextBox>
         <p>
-            <asp:CheckBox ID="chkIsReturned" runat="server" style="z-index: 1; left: 131px; top: 305px; position: absolute" Text="Returned" />
+            <asp:CheckBox ID="chkIsReturned" runat="server" style="z-index: 1; left: 161px; top: 282px; position: absolute" Text="Returned" />
             <asp:Label ID="lblProdutIDc" runat="server" style="z-index: 1; left: 29px; top: 206px; position: absolute" Text="Product ID" width="79px"></asp:Label>
         </p>
         <asp:Label ID="lblQuantity" runat="server" style="z-index: 1; left: 29px; top: 242px; position: absolute" Text="Quantity" width="79px"></asp:Label>

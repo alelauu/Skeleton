@@ -18,19 +18,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsOrder
         clsOrder OrderOne = new clsOrder();
-        //capture the order status
-        OrderOne.OrderStatus = txtOrderStatus.Text;
-        OrderOne.OrderID = Convert.ToInt32(txtOrderID.Text);
-        OrderOne.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        OrderOne.ProductID = Convert.ToInt32(txtProductID.Text);
-        OrderOne.Quantity = Convert.ToInt32(txtQuantity.Text);
-        OrderOne.OrderDate = Convert.ToDateTime(DateTime.Now);
-        OrderOne.IsReturned = chkIsReturned.Checked;
-        
-        //store the order in the session object
-        Session["OrderOne"] = OrderOne;
-        //navigate to the view page
-        Response.Redirect("OrdersViewer.aspx");
+        string OrderStatus = txtOrderStatus.Text;
+        string OrderDate = txtOrderDate.Text;
+        string ProductID = txtProductID.Text;
+        string CustomerID = txtCustomerID.Text;
+        string Quantity = txtQuantity.Text;
+        string IsReturned = chkIsReturned.Text;
+        string Error = "";
+        Error = OrderOne.Valid(OrderStatus, OrderDate);
+        if (Error == "")
+        {
+            OrderOne.OrderStatus = OrderStatus;
+            OrderOne.OrderDate = Convert.ToDateTime(OrderDate);
+            Session["OrderOne"] = OrderOne;
+            Response.Redirect("OrdersViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
