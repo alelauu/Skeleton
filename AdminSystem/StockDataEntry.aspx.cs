@@ -19,7 +19,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string ProductCapacity = txtProductCapacity.Text;
         string ProductPrice = txtProductPrice.Text;
         string DateAdded = txtDateAdded.Text;
-        ProductOne.InStock = chkInStock.Checked;
+        string InStock = chkInStock.Text;
 
         string Error = "";
         Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);

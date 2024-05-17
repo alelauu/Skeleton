@@ -260,7 +260,7 @@ namespace Testing1
             //string variable to store error message
             String Error = "";
             //invoking the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -276,7 +276,7 @@ namespace Testing1
             String Error = "";
             string ProductName = ""; //triggers an error
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -287,7 +287,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "a";
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -298,7 +298,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "aa";
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -309,7 +309,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; 
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -320,7 +320,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; 
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -331,7 +331,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; 
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -342,7 +342,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "aaaaaaaaaaaaaaa"; //passes
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -354,7 +354,7 @@ namespace Testing1
             string ProductName = "";
             ProductName = ProductName.PadRight(100, 'a'); //this should fail
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -370,7 +370,7 @@ namespace Testing1
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateAdded = TestDate.ToString();
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -383,7 +383,7 @@ namespace Testing1
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateAdded = TestDate.ToString();
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -396,7 +396,7 @@ namespace Testing1
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
             string DateAdded = TestDate.ToString();
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -407,7 +407,7 @@ namespace Testing1
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateAdded = TestDate.ToString();
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -419,7 +419,7 @@ namespace Testing1
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
             string DateAdded = TestDate.ToString();
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -429,7 +429,7 @@ namespace Testing1
             String Error = "";
             DateTime TestDate;
             string DateAdded = "this is not a date!";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -442,7 +442,7 @@ namespace Testing1
             String Error = "";
             string ProductBrand = ""; //triggers an error
             //invoke the method
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -452,7 +452,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "a";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -461,7 +461,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "aa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -470,7 +470,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "aaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -479,7 +479,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "aaaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -488,7 +488,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "aaaaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -497,7 +497,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductBrand = "aaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -507,7 +507,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "";
             ProductName = ProductName.PadRight(100, 'a'); 
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -519,7 +519,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -528,7 +528,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "a";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -537,7 +537,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "aa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -546,7 +546,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "aaaaaaaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -555,7 +555,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "aaaaaaaaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -564,7 +564,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "aaaaaaaaaaaaaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -573,7 +573,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductColour = "aaaaaaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -583,7 +583,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "";
             ProductName = ProductName.PadRight(100, 'a');
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -594,7 +594,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -603,7 +603,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "a";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -612,7 +612,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "aa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -621,7 +621,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "aaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -630,7 +630,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "aaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -639,7 +639,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "aaaaaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -648,7 +648,7 @@ namespace Testing1
             clsProduct ProductOne = new clsProduct();
             String Error = "";
             string ProductCapacity = "aaa";
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -658,7 +658,7 @@ namespace Testing1
             String Error = "";
             string ProductName = "";
             ProductName = ProductName.PadRight(50, 'a');
-            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, ProductPrice, DateAdded);
+            Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
     }

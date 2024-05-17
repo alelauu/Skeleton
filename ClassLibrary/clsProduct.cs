@@ -161,7 +161,7 @@ namespace ClassLibrary
             }
         }
         
-        public String Valid(string productName, string productBrand, string productColour, string productCapacity, string dateAdded)
+        public string Valid(string productName, string productBrand, string productColour, string productCapacity, string dateAdded)
         {
             //create a string variable to store the error
             String Error = "";
