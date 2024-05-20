@@ -11,30 +11,6 @@ namespace ClassLibrary
         //constructor
         public clsStockCollection()
         {
-            /*clsProduct TestItem = new clsProduct();
-            //sets its properties
-            TestItem.InStock = true;
-            TestItem.ProductID = 12;
-            TestItem.ProductName = "Test";
-            TestItem.ProductBrand = "Xiaomi";
-            TestItem.ProductColour = "Purple";
-            TestItem.ProductCapacity = "1TB";
-            TestItem.ProductPrice = 2149;
-            TestItem.DateAdded = DateTime.Now;
-            //adding the test data to the test list
-            mProductList.Add(TestItem);
-            //re initialise the object for some new data
-            TestItem = new clsProduct();
-            TestItem.InStock = true;
-            TestItem.ProductID = 13;
-            TestItem.ProductName = "Test1";
-            TestItem.ProductBrand = "Samsung";
-            TestItem.ProductColour = "Violet";
-            TestItem.ProductCapacity = "512GB";
-            TestItem.ProductPrice = 2149;
-            TestItem.DateAdded = DateTime.Now; 
-            mProductList.Add(TestItem);*/
-
             //variable for the index
             Int32 Index = 0;
             //variable to store the record count
@@ -67,6 +43,7 @@ namespace ClassLibrary
         }
         //private data member for the list
         List<clsProduct> mProductList = new List<clsProduct>();
+        clsProduct mThisProduct = new clsProduct();
         //public property for the product list
         public List<clsProduct> ProductList
         {
@@ -92,6 +69,34 @@ namespace ClassLibrary
                 //to be made
             }
         }
-        public clsProduct ThisProduct { get; set; }
+        public clsProduct ThisProduct
+        {
+            get
+            {
+                return mThisProduct;
+            }
+            set
+            {
+                mThisProduct = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisProduct
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the store procedure
+            DB.AddParameter("@ProductName", mThisProduct.ProductName);
+            DB.AddParameter("@ProductBrand", mThisProduct.ProductBrand);
+            DB.AddParameter("@ProductColour", mThisProduct.ProductColour);
+            DB.AddParameter("@ProductCapacity", mThisProduct.ProductCapacity);
+            DB.AddParameter("@ProductPrice", mThisProduct.ProductPrice);
+            DB.AddParameter("@InStock", mThisProduct.InStock);
+            DB.AddParameter("@DateAdded", mThisProduct.DateAdded);
+
+            //execute the query return the primary key value
+            return DB.Execute("sproc_tblProduct_Insert");
+        }
     }
 }
