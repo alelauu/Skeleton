@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 
 namespace Testing1
 {
@@ -87,6 +90,32 @@ namespace Testing1
             AllProducts.ProductList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllProducts.Count, TestList.Count);
+        }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsProduct TestItem = new clsProduct();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.InStock = true;
+            TestItem.ProductID = 9;
+            TestItem.ProductName = "Test";
+            TestItem.ProductBrand = "Nokia";
+            TestItem.ProductColour = "Pink";
+            TestItem.ProductCapacity = "64GB";
+            TestItem.ProductPrice = 379;
+            TestItem.DateAdded = DateTime.Now;
+            //set ThisProduct to the test data
+            AllProducts.ThisProduct = TestItem;
+            //add the record
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductID = PrimaryKey;
+            //find the record
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem); 
         }
     }
 }

@@ -30,10 +30,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ProductOne.ProductColour = ProductColour;
             ProductOne.ProductCapacity = ProductCapacity;
             ProductOne.DateAdded = Convert.ToDateTime(DateAdded);
-            //storing the address in the session object
-            Session["ProductOne"] = ProductOne;
-            //redirecting
-            Response.Redirect("StockViewer.aspx");
+            ProductOne.ProductPrice = Convert.ToDecimal(ProductPrice);
+            ProductOne.InStock = chkInStock.Checked;
+            clsStockCollection ProductList = new clsStockCollection();
+            ProductList.ThisProduct = ProductOne;
+            ProductList.Add();
+            Response.Redirect("StockList.aspx");
         }
         else
         {
