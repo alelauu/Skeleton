@@ -46,10 +46,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
         NewStaff.Address = Address;
         NewStaff.Number = Number;
         NewStaff.StartDate = Convert.ToDateTime(StartDate);
-        Session["NewStaff"] = NewStaff;
+        NewStaff.IsOnline = chkIsOnline.Checked;
+
+        //Create a new instance of the Staff Collection
+        clsStaffCollection StaffList = new clsStaffCollection();
+
+        //Set the new record
+        StaffList.ThisStaff = NewStaff;
 
         //Redirects back to the view:
-        Response.Redirect("StaffViewer.aspx");
+        Response.Redirect("StaffList.aspx");
 
         }
         else
