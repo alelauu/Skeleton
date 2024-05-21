@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Testing3
@@ -7,12 +8,12 @@ namespace Testing3
     public class tstCustomer
     {
         [TestMethod]
-        public void InstanceOK()
+        public void InstanceOk()
         {
-            //create an instance of the class wwe want to create 
-            clsCustomer ACustomer = new clsCustomer();
-            //test  to see that it exists 
-            Assert.IsNotNull(ACustomer);
+            clsCustomer AnCustomer = new clsCustomer();
+            Assert.IsNotNull(AnCustomer);
+
         }
+
     }
 }
