@@ -78,6 +78,63 @@ namespace Testing2
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            TestItem.IsReturned = true;
+            TestItem.OrderID = 1;
+            TestItem.ProductID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.Quantity = 1;
+            TestItem.OrderDate = DateTime.Now;
+            TestItem.OrderStatus = "Processed";
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderID = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.IsReturned = true;
+            TestItem.OrderDate = DateTime.Now;
+            TestItem.ProductID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.Quantity = 1;
+            TestItem.OrderStatus = "Processed";
+            //set ThisOrder to the test datae 
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            //modify the test record
+            TestItem.IsReturned = false;
+            TestItem.OrderDate = DateTime.Now;
+            TestItem.ProductID = 4;
+            TestItem.CustomerID = 4;
+            TestItem.Quantity = 4;
+            TestItem.OrderStatus = "shipped";
+            //set record based on the new test data 
+            AllOrders.ThisOrder = TestItem;
+            AllOrders.Update();
+            //update the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see if ThisOrder matche the test data
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+
+        }
+
         
     }
 }
