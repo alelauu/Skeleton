@@ -8,6 +8,22 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 ProductID;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //get the number of the address to be processed
+        ProductID = Convert.ToInt32(Session["ProductID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (ProductID != -1)
+            {
+                //display the current data for the record
+                DisplayProduct();
+            }
+        }
+    }
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //creating a new instance of clsProduct
@@ -25,6 +41,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
         if (Error == "")
         {
+            //capture the address id
+            ProductOne.ProductID = ProductID;
             ProductOne.ProductName = ProductName;
             ProductOne.ProductBrand = ProductBrand;
             ProductOne.ProductColour = ProductColour;
@@ -33,8 +51,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ProductOne.ProductPrice = Convert.ToDecimal(ProductPrice);
             ProductOne.InStock = chkInStock.Checked;
             clsStockCollection ProductList = new clsStockCollection();
-            ProductList.ThisProduct = ProductOne;
-            ProductList.Add();
+
+            //if this is a new record i.e. ProductID = -1 then add the data
+            if (ProductID == -1)
+            {
+                ProductList.ThisProduct = ProductOne;
+                ProductList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                ProductList.ThisProduct.Find(ProductID);
+                //set the ThisProduct property
+                ProductList.ThisProduct = ProductOne;
+                //update the record
+                ProductList.Update();
+            }
+            //redirect back to the list page
             Response.Redirect("StockList.aspx");
         }
         else
@@ -68,5 +102,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             lblError.Text = "ProductID does not exist";
         }
+    }
+    void DisplayProduct()
+    {
+        //creating a new instance of clsStockCollection
+        clsStockCollection AllProducts = new clsStockCollection();
+        //find the record to update
+        AllProducts.ThisProduct.Find(ProductID);
+        //display the data for the record
+        txtProductName.Text = AllProducts.ThisProduct.ProductName.ToString();
+        txtProductBrand.Text = AllProducts.ThisProduct.ProductBrand.ToString();
+        txtProductColour.Text = AllProducts.ThisProduct.ProductColour.ToString();
+        txtProductCapacity.Text = AllProducts.ThisProduct.ProductCapacity.ToString();
+        txtProductPrice.Text = AllProducts.ThisProduct.ProductPrice.ToString();
+        txtDateAdded.Text = AllProducts.ThisProduct.DateAdded.ToString();
+        chkInStock.Checked = AllProducts.ThisProduct.InStock;
     }
 }

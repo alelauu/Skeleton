@@ -117,5 +117,40 @@ namespace Testing1
             //test to see that the two values are the same
             Assert.AreEqual(AllProducts.ThisProduct, TestItem); 
         }
+
+        public void UpdateMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsProduct TestItem = new clsProduct();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.InStock = true;
+            TestItem.ProductID = 9;
+            TestItem.ProductName = "Test";
+            TestItem.ProductBrand = "Nokia";
+            TestItem.ProductColour = "Pink";
+            TestItem.ProductCapacity = "64GB";
+            TestItem.ProductPrice = 379;
+            TestItem.DateAdded = DateTime.Now;
+            //set ThisProduct to the test data
+            AllProducts.ThisProduct = TestItem;
+            //add the record
+            PrimaryKey = AllProducts.Add();
+            TestItem.ProductID = PrimaryKey;
+            //modify the test record
+            TestItem.InStock = false;
+            TestItem.ProductID = 11;
+            TestItem.ProductName = "Test2";
+            TestItem.ProductBrand = "Samsung";
+            TestItem.ProductColour = "Purple";
+            TestItem.ProductCapacity = "128GB";
+            TestItem.ProductPrice = 249;
+            TestItem.DateAdded = DateTime.Now;
+            AllProducts.ThisProduct = TestItem;
+            AllProducts.Update();
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+        }
     }
 }
