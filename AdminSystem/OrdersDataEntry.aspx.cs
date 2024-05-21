@@ -8,8 +8,22 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 OrderID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed
+        OrderID = Convert.ToInt32(Session["OrderID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record 
+            if (OrderID != -1)
+            {
+                //display the current data for the record
+                DisplayOrder();
+            }
+        }
 
     }
 
@@ -28,10 +42,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = OrderOne.Valid(OrderStatus, OrderDate);
         if (Error == "")
         {
+            OrderOne.OrderID = OrderID;
             OrderOne.OrderStatus = OrderStatus;
             OrderOne.OrderDate = Convert.ToDateTime(OrderDate);
-            Session["OrderOne"] = OrderOne;
-            Response.Redirect("OrdersViewer.aspx");
+            OrderOne.ProductID = Convert.ToInt32(ProductID);
+            OrderOne.CustomerID = Convert.ToInt32(CustomerID);
+            OrderOne.Quantity = Convert.ToInt32(Quantity);
+            OrderOne.IsReturned = chkIsReturned.Checked;
+            clsOrderCollection OrderList = new clsOrderCollection();
+
+            if (OrderID == -1)
+            {
+                OrderList.ThisOrder = OrderOne;
+                OrderList.Add();
+            }
+            else
+            {
+                OrderList.ThisOrder.Find(OrderID);
+                OrderList.ThisOrder = OrderOne;
+                OrderList.Update();
+            }
+            Response.Redirect("OrdersList.aspx");
+
+
         }
         else
         {
@@ -62,12 +95,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             //display the values of the properties in the form
             txtCustomerID.Text = OrderOne.CustomerID.ToString();
-            txtProductID.Text = OrderOne.ProductID.ToString()   ;
+            txtProductID.Text = OrderOne.ProductID.ToString();
             txtQuantity.Text = OrderOne.Quantity.ToString();
             txtOrderDate.Text = OrderOne.OrderDate.ToString();
             chkIsReturned.Checked = OrderOne.IsReturned;
             txtOrderStatus.Text = OrderOne.OrderStatus;
 
         }
+
+     
+
+
+
+
+    }
+    void DisplayOrder()
+    {
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ThisOrder.Find(OrderID);
+        txtOrderID.Text = Orders.ThisOrder.OrderID.ToString();
+        txtProductID.Text = Orders.ThisOrder.ProductID.ToString();
+        txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
+        txtQuantity.Text = Orders.ThisOrder.Quantity.ToString();
+        txtOrderStatus.Text = Orders.ThisOrder.OrderStatus.ToString();
+        txtOrderDate.Text = Orders.ThisOrder.OrderDate.ToString();
+        chkIsReturned.Checked = Orders.ThisOrder.IsReturned;
     }
 }

@@ -6,6 +6,11 @@ namespace ClassLibrary
 {
     public class clsOrderCollection
     {
+        //private data member for the list
+        List<clsOrder> mOrderList = new List<clsOrder>();
+        //private member data for thisOrder
+        clsOrder mThisOrder = new clsOrder();
+
         public clsOrderCollection()
         {
             Int32 Index = 0;
@@ -26,10 +31,10 @@ namespace ClassLibrary
                 mOrderList.Add(OrderOne);
                 Index++;
             }
-            }
+        }
 
         //private data member for the list
-        List<clsOrder> mOrderList = new List<clsOrder>();
+
         public List<clsOrder> OrderList
         {
             get
@@ -52,6 +57,44 @@ namespace ClassLibrary
                 //we shall worry about this later
             }
         }
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                return mThisOrder;
+            }
+            set
+            {
+                mThisOrder = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@Quantity", mThisOrder.Quantity);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@IsReturned", mThisOrder.IsReturned);
+
+            return DB.Execute("sproc_tblOrder_Insert");
+
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@Quantity", mThisOrder.Quantity);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@IsReturned", mThisOrder.IsReturned);
+
+            DB.Execute("sproc_tblOrder_Update");
+        }
     }
 }
