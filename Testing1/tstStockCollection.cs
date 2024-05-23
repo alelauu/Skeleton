@@ -179,5 +179,47 @@ namespace Testing1
             Boolean Found = AllProducts.ThisProduct.Find(PrimaryKey);
             Assert.IsFalse(Found);
         }
+        [TestMethod]
+        public void ReportByProductNameMethodOK()
+        {
+            clsStockCollection AllProducts = new clsStockCollection();
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            FilteredProducts.ReportByProductName("");
+            Assert.AreEqual(AllProducts.Count, FilteredProducts.Count);
+        }
+        [TestMethod]
+        public void ReportByProductNameNoneFound() 
+        {
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            //apply a product name that doesn't exist
+            FilteredProducts.ReportByProductName("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredProducts.Count);
+        }
+        [TestMethod]
+        public void ReportByProductNameDataFound() 
+        {
+            clsStockCollection FilteredProducts = new clsStockCollection();
+            Boolean OK = true;
+            //apply a product name that doesn't exist
+            FilteredProducts.ReportByProductName("Test");
+            //check that the correct number of records are found
+            if (FilteredProducts.Count == 2)
+            {
+                if (FilteredProducts.ProductList[0].ProductID != 8)
+                {
+                    OK = false;
+                }
+                if (FilteredProducts.ProductList[0].ProductID != 24)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
