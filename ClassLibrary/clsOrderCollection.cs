@@ -13,24 +13,9 @@ namespace ClassLibrary
 
         public clsOrderCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblOrder_SelectAll");
-            RecordCount = DB.Count;
-            while (Index < RecordCount)
-            {
-                clsOrder OrderOne = new clsOrder();
-                OrderOne.IsReturned = Convert.ToBoolean(DB.DataTable.Rows[Index]["IsReturned"]);
-                OrderOne.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                OrderOne.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
-                OrderOne.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                OrderOne.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
-                OrderOne.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
-                OrderOne.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                mOrderList.Add(OrderOne);
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         //private data member for the list
@@ -83,6 +68,26 @@ namespace ClassLibrary
 
         }
 
+        public void Delete()
+        {
+            //deletes the record pointed to by thisorder
+            // connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void ReportByOrderStatus(string OrderStatus)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderStatus", OrderStatus);
+            DB.Execute("sproc_tblOrder_FilterByOrderStatus");
+            PopulateArray(DB);
+            
+        }
+
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
@@ -95,6 +100,28 @@ namespace ClassLibrary
             DB.AddParameter("@IsReturned", mThisOrder.IsReturned);
 
             DB.Execute("sproc_tblOrder_Update");
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mOrderList = new List<clsOrder>();
+            while (Index < RecordCount)
+            {
+                clsOrder OrderOne = new clsOrder();
+                OrderOne.IsReturned = Convert.ToBoolean(DB.DataTable.Rows[Index]["IsReturned"]);
+                OrderOne.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                OrderOne.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
+                OrderOne.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                OrderOne.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
+                OrderOne.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
+                OrderOne.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                mOrderList.Add(OrderOne);
+                Index++;
+            }
         }
     }
 }

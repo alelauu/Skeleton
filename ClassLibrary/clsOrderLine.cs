@@ -142,5 +142,12 @@ namespace ClassLibrary
             }
 
         }
+
+       public void ReportByOrderStatus(string OrderStatus)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderStatus", OrderStatus);
+            DB.Execute("sproc_tblOrder_FilterByOrderStatus");
+        }
     }
 }

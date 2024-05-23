@@ -42,7 +42,7 @@ namespace Testing2
 
         }
 
-        
+
 
         [TestMethod]
         public void ThisOrderPropertyOK()
@@ -135,6 +135,75 @@ namespace Testing2
 
         }
 
-        
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            TestItem.IsReturned = true;
+            TestItem.OrderDate = DateTime.Now;
+            TestItem.ProductID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.Quantity = 1;
+            TestItem.OrderStatus = "Processed";
+            //set ThisOrder to the test datae 
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.Delete();
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+
+
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByOrderStatus("");
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusNoneFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByOrderStatus("xxxxxx");
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusTestDataFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            Boolean OK = true;
+            FilteredOrders.ReportByOrderStatus("yyyyyy");
+            if (FilteredOrders.Count == 2)
+            {
+                //check to see that the first record is 25
+                if (FilteredOrders.OrderList[0].OrderID != 39)
+                {
+                    OK = false;
+                }
+                //check to see if the first record is 26
+                if (FilteredOrders.OrderList[1].OrderID != 40)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records 
+            Assert.IsTrue(OK);
+        }
+
     }
 }
