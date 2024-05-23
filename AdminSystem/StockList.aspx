@@ -9,14 +9,18 @@
 <body>
     <form id="form2" runat="server">
         <div>
-            <asp:ListBox ID="lstProductList" runat="server" Height="149px" Width="165px"></asp:ListBox>
+            <asp:ListBox ID="lstProductList" runat="server" Height="149px" Width="165px" style="z-index: 1; left: 10px; top: 15px; position: absolute"></asp:ListBox>
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 150px; top: 171px; position: absolute; right: 641px;" Text="Edit" width="55px" />
         </div>
-        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
-        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 69px; top: 171px; position: absolute" Text="Edit" />
-        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 128px; top: 170px; position: absolute" Text="Delete" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 80px; top: 171px; position: absolute" Text="Delete" />
+        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" style="z-index: 1; left: 10px; top: 171px; position: absolute" width="55px" />
         <p>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 16px; top: 204px; position: absolute" Text="[lblError]"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 209px; position: absolute" Text="[lblError]"></asp:Label>
         </p>
+        <asp:Label ID="lblEnterProductName" runat="server" style="z-index: 1; left: 10px; top: 238px; position: absolute" Text="Enter a Product Name" width="136"></asp:Label>
+        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 164px; top: 237px; position: absolute"></asp:TextBox>
+        <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 10px; top: 270px; position: absolute" Text="Apply Filter" />
+        <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 134px; top: 270px; position: absolute" Text="Clear Filter" width="100px" />
     </form>
 </body>
 </html>
