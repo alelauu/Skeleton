@@ -219,5 +219,105 @@ namespace Testing4
             //Tests to see that there are no records
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            // Creates an instance of the filtered data
+            clsStaffCollection AllStaff = new clsStaffCollection();
+
+            //Creates the item of the test data
+            clsStaff TestStaff = new clsStaff();
+
+            //Variable to store the primary key
+            Int32 PrimaryKey = 0;
+
+
+            //Set the properties
+            TestStaff.IsOnline = false;
+            TestStaff.StaffId = 10;
+            TestStaff.FullName = "Sam";
+            TestStaff.Email = "P2345670@my365.dmu.ac.uk";
+            TestStaff.Address = "The glassworks, Leicester,LE1 5AN";
+            TestStaff.Number = "07497070479";
+            TestStaff.StartDate = DateTime.Now;
+
+            //Set the ThisStaff to the test data
+            AllStaff.ThisStaff = TestStaff;
+
+            //Adds the record 
+            PrimaryKey = AllStaff.Add();
+
+            //Sets the primary key of the test data
+            TestStaff.StaffId = PrimaryKey;
+
+            //Modify the test record
+            TestStaff.IsOnline = true;
+            TestStaff.StaffId = 10;
+            TestStaff.FullName = "Jill";
+            TestStaff.Email = "P2345672@my365.dmu.ac.uk";
+            TestStaff.Address = "The glassworks, Leicester,LE1 4AN";
+            TestStaff.Number = "07497070479";
+            TestStaff.StartDate = DateTime.Now;
+
+            //Set the record based on the new test data 
+            AllStaff.ThisStaff = TestStaff;
+
+            //Update the record
+            AllStaff.Update();
+
+            //Find the record 
+            AllStaff.ThisStaff.Find(PrimaryKey);
+
+            //Test to see if ThisStaff matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
+
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            // Creates an instance of the filtered data
+            clsStaffCollection AllStaff = new clsStaffCollection();
+
+            //Creates the item of the test data
+            clsStaff TestStaff = new clsStaff();
+
+            //Variable to store the primary key
+            Int32 PrimaryKey = 0;
+
+
+            //Set the properties
+            TestStaff.IsOnline = false;
+            TestStaff.StaffId = 10;
+            TestStaff.FullName = "Sam";
+            TestStaff.Email = "P2345670@my365.dmu.ac.uk";
+            TestStaff.Address = "The glassworks, Leicester,LE1 4AN";
+            TestStaff.Number = "07497070479";
+            TestStaff.StartDate = DateTime.Now;
+
+            //Set the ThisStaff to the test data
+            AllStaff.ThisStaff = TestStaff;
+
+            //Adds the record 
+            PrimaryKey = AllStaff.Add();
+
+            //Sets the primary key of the test data
+            TestStaff.StaffId = PrimaryKey;
+
+            //Find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+
+
+            //Delete the record
+            AllStaff.Delete();
+
+            //Find the record 
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+
+            //Test to see if ThisStaff matches the test data
+            Assert.IsFalse(Found);
+
+        }
     }
 }
