@@ -150,6 +150,36 @@ namespace ClassLibrary
             PopulateArray(DB);
         }
 
-     
+        public void Update()
+        {
+            //Update an existing record based on the values of thisStaff
+            //Connect to the databsse
+            clsDataConnection DB = new clsDataConnection();
+
+            //Set the parameters for the new stored procedure
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.AddParameter("@FullName", mThisStaff.FullName);
+            DB.AddParameter("@Email", mThisStaff.Email);
+            DB.AddParameter("@Address", mThisStaff.Address);
+            DB.AddParameter("@Number", mThisStaff.Number);
+            DB.AddParameter("@StartDate", mThisStaff.StartDate);
+            DB.AddParameter("@IsOnline", mThisStaff.IsOnline);
+
+            //Execute the store procedure
+            DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void Delete()
+        {
+            //Deletes the record pointed to by thisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            //Set the parameters for the stored procedure
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+
+            //Execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
+        }
     }
 }
