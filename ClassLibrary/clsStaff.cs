@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace ClassLibrary
 {
@@ -269,6 +270,33 @@ namespace ClassLibrary
 
         }
 
+        /***********Code for statistics************/
+        //The code below establishes database connectivity and data retrieval
+
+
+        //Grouped by Activity method
+        public DataTable StatisticsGroupedByActivity()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByActivity");
+
+            //There should be either zero, one or more records
+            return DB.DataTable;
+        }
+        public DataTable StatisticsGroupedByStartDate()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByStartDate");
+
+            //There should be either zero, one or more records
+            return DB.DataTable;
+        }
     }
 }
 
