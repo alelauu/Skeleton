@@ -40,10 +40,11 @@
         <asp:TextBox ID="txtQuantity" runat="server" height="22px" style="z-index: 1; left: 158px; top: 242px; position: absolute" width="128px"></asp:TextBox>
         <p>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 29px; top: 347px; position: absolute; " Text="OK" height="26px" width="33" />
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 111px; top: 347px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 111px; top: 347px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         </p>
         <p>
-            &nbsp;</p>
+            <asp:Button ID="btnMain" runat="server" OnClick="btnMain_Click" style="z-index: 1; left: 215px; top: 348px; position: absolute" Text="Return to Main Menu" />
+        </p>
         <p>
             &nbsp;</p>
     </form>
