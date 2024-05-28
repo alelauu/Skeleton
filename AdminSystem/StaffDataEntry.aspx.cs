@@ -36,6 +36,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaffCollection Staff = new clsStaffCollection();
 
         //Find the data for the record
+        Staff.ThisStaff.Find(StaffId);
+
+        //Display the staff details
         txtStaffId.Text = Staff.ThisStaff.StaffId.ToString();
         txtFullName.Text = Staff.ThisStaff.FullName.ToString();
         txtEmail.Text = Staff.ThisStaff.Email.ToString();

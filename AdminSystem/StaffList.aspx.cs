@@ -125,7 +125,7 @@ public partial class _1_List : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "Please select a record from th list to edit!";
+            lblError.Text = "Please select a record from the list to edit!";
         }
     }
 
