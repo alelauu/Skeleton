@@ -43,9 +43,6 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                <br />
-                <br />
-                <br />
                 <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" style="z-index: 1; left: 9px; top: 548px; position: absolute" Text="Back to Previous Page" />
             </div>
 
