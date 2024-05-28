@@ -92,4 +92,9 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataTextField = "OrderStatus";
         lstOrderList.DataBind();
     }
+
+    protected void btnStats_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrdersStatistics.aspx");
+    }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data;
 using System.Runtime.Remoting.Messaging;
+
 
 namespace ClassLibrary
 {
@@ -182,5 +184,22 @@ namespace ClassLibrary
 
             return Error;
         }
+
+        /******* Statistics Grouped by Order Status Method ******/
+        public DataTable StatisticsGroupedByOrderStatus()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblOrder_Count_GroupByOrderStatus");
+            return DB.DataTable;
+        }
+
+        /****** Statistics Grouped by Order Date Method ******/
+        public DataTable StatisticsGroupedOrderDate()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblOrder_Count_GroupOrderDate");
+            return DB.DataTable;
+        }
     }
+
 }

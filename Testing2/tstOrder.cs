@@ -1,6 +1,9 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Data;
+
+
 
 namespace Testing2
 {
@@ -393,7 +396,25 @@ namespace Testing2
             Error = OrderOne.Valid(OrderStatus, OrderDate);
             Assert.AreNotEqual(Error, "");
         }
-        
 
+        [TestMethod]
+        public void StatStatisticsGroupedByOrderStatus()
+        {
+            clsOrder OrderOne = new clsOrder();
+            DataTable dT = OrderOne.StatisticsGroupedByOrderStatus();
+            int noOfRecord = 5;
+
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+
+        [TestMethod]
+        public void StatStatisticsGroupedByOrderDate()
+        {
+            clsOrder OrderOne = new clsOrder();
+            DataTable dT = OrderOne.StatisticsGroupedOrderDate();
+            int noOfRecord = 7;
+
+            Assert.AreEqual(noOfRecord , dT.Rows.Count);
+        }
     }
 }

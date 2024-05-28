@@ -20,6 +20,7 @@
         <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 151px; top: 403px; position: absolute" Text="Clear Filter" />
         <asp:Label ID="lblFilter" runat="server" style="z-index: 1; left: 13px; top: 354px; position: absolute" Text="Enter an Order Status"></asp:Label>
         <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 165px; top: 355px; position: absolute"></asp:TextBox>
+        <asp:Button ID="btnStats" runat="server" OnClick="btnStats_Click" style="z-index: 1; left: 287px; top: 403px; position: absolute" Text="Statistics Page" />
     </form>
 </body>
 </html>
