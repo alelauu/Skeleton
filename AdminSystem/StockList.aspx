@@ -17,13 +17,16 @@
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 209px; position: absolute" Text="[lblError]"></asp:Label>
         </p>
-        <asp:Label ID="lblEnterProductName" runat="server" style="z-index: 1; left: 10px; top: 238px; position: absolute" Text="Enter a Product Name" width="136"></asp:Label>
-        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 164px; top: 237px; position: absolute"></asp:TextBox>
+        <asp:Label ID="lblEnterProductName" runat="server" style="z-index: 1; left: 10px; top: 238px; position: absolute; width: 193px; right: 934px;" Text="Enter a Product Name"></asp:Label>
+        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 179px; top: 237px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 10px; top: 270px; position: absolute" Text="Apply Filter" />
         <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 134px; top: 270px; position: absolute" Text="Clear Filter" width="100px" />
         <div>
             <asp:Button ID="btnStatsPage" runat="server" OnClick="btnStatsPage_Click" style="z-index: 1; left: 258px; top: 270px; position: absolute" Text="Statistics Page" />
+            <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 382px; top: 270px; position: absolute" Text="Return to Main Menu" />
         </div>
     </form>
+    <p>
+        s</p>
 </body>
 </html>

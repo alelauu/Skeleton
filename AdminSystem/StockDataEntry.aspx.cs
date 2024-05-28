@@ -110,6 +110,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //find the record to update
         AllProducts.ThisProduct.Find(ProductID);
         //display the data for the record
+        txtProductID.Text = AllProducts.ThisProduct.ProductID.ToString();
         txtProductName.Text = AllProducts.ThisProduct.ProductName.ToString();
         txtProductBrand.Text = AllProducts.ThisProduct.ProductBrand.ToString();
         txtProductColour.Text = AllProducts.ThisProduct.ProductColour.ToString();
@@ -117,5 +118,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtProductPrice.Text = AllProducts.ThisProduct.ProductPrice.ToString();
         txtDateAdded.Text = AllProducts.ThisProduct.DateAdded.ToString();
         chkInStock.Checked = AllProducts.ThisProduct.InStock;
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StockList.aspx");
     }
 }
