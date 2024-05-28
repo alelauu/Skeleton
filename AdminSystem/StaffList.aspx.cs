@@ -16,12 +16,12 @@ public partial class _1_List : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //Update the list boc
-            DisplayStaff();
+            DisplayAllStaff();
         }
 
     }
 
-    void DisplayStaff()
+    void DisplayAllStaff()
     {
 
         //Creates an instance of the Staff Collection
@@ -35,7 +35,7 @@ public partial class _1_List : System.Web.UI.Page
 
         //Sets the data field to display
 
-        lstStaffList.DataValueField = "FullName";
+        lstStaffList.DataTextField = "FullName";
 
         //binds the data to the list
         lstStaffList.DataBind();
@@ -107,7 +107,26 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
+        //Variable to store the primary key value of he record to be edited
+        Int32 StaffId;
 
+        //If a record has been selected from the list:
+        if (lstStaffList.SelectedIndex != -1)
+        {
+
+            //Retrieve the primary key value of the record to edit
+            StaffId = Convert.ToInt32(lstStaffList.SelectedValue);
+
+            //Store the data in the session object
+            Session["StaffId"] = StaffId;
+
+            //Redirect to the edit page
+            Response.Redirect("StaffDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record from th list to edit!";
+        }
     }
 
 
@@ -115,5 +134,35 @@ public partial class _1_List : System.Web.UI.Page
 
 
 
-    
+
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //Variable to store the primary key value of he record to be edited
+        Int32 StaffId;
+
+        //If a record has been selected from the list:
+        if (lstStaffList.SelectedIndex != -1)
+        {
+
+            //Retrieve the primary key value of the record to edit
+            StaffId = Convert.ToInt32(lstStaffList.SelectedValue);
+
+            //Store the data in the session object
+            Session["StaffId"] = StaffId;
+
+            //Redirect to the deltee page
+            Response.Redirect("StaffConfirmDelete.aspx");
+        }
+        else
+        {
+            //Displays an error message
+            lblError.Text = "Please select a record from the list to delete!";
+        }
+    }
+
+    protected void btnStatistics_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffStatistics.aspx");
+    }
 }

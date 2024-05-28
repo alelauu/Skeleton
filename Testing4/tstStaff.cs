@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Data;
 
 namespace Testing4
 {
@@ -1202,5 +1203,38 @@ namespace Testing4
             Assert.AreNotEqual(Error, "");
         }
 
+
+        /************STATISTICS TESTS************/
+
+        [TestMethod]
+        public void StatStatisticsGroupedByActivity()
+        {
+            //Creates a new instance of the Staff class
+            clsStaff NewStaff = new clsStaff();
+
+            //Invoke the method
+            DataTable dT = NewStaff.StatisticsGroupedByActivity();
+
+            //The number of rows of data according to the last executed stored procedure
+            int noOfRecord = 2;
+
+            //tests to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+        [TestMethod]
+        public void StatStatisticsGroupedByStartDate()
+        {
+            //Creates a new instance of the Staff class
+            clsStaff NewStaff = new clsStaff();
+
+            //Invoke the method
+            DataTable dT = NewStaff.StatisticsGroupedByStartDate();
+
+            //The number of rows of data according to the last executed stored procedure
+            int noOfRecord = 9;
+
+            //tests to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
     }
 }

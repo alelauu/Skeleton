@@ -7,6 +7,9 @@ namespace Testing3
     {
 
         [TestMethod]
-        public void IsOnlinePropertyOK() 
+
+
+        public void IsOnlinePropertyOK() { }
+
     }
 }

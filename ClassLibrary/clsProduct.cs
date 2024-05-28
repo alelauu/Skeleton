@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Security.Cryptography.X509Certificates;
 
 namespace ClassLibrary
@@ -122,16 +123,6 @@ namespace ClassLibrary
 
         public bool Find(int productID)
         { 
-            /*
-            //set the private data members to the test data value
-            mProductID = 4;
-            mProductBrand = "Apple";
-            mInStock = true;
-            mProductPrice = Convert.ToInt32(999);
-            //always return true
-            return true;
-            */
-            
             //creating an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the address id to search for
@@ -230,6 +221,26 @@ namespace ClassLibrary
                 Error = Error + "The product colour must be less than 5 characters : ";
             }
             return Error;
+        }
+        /***** Statistics Grouped by Capacity METHOD *****/
+        public DataTable StatisticsGroupedByCapacity()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblProduct_Count_GroupByCapacity");
+            //there should be either zero, one, or more records
+            return DB.DataTable;
+        }
+        /***** Statistics Grouped by Date Added METHOD *****/
+        public DataTable StatisticsGroupedAddedDate()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblProduct_Count_GroupAddedDate");
+            //there should be either zero, one, or more records
+            return DB.DataTable;
         }
     }
 }

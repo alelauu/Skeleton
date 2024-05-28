@@ -192,25 +192,25 @@ namespace Testing1
         {
             clsStockCollection FilteredProducts = new clsStockCollection();
             //apply a product name that doesn't exist
-            FilteredProducts.ReportByProductName("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            FilteredProducts.ReportByProductName("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
             //test to see that there are no records
             Assert.AreEqual(0, FilteredProducts.Count);
         }
         [TestMethod]
-        public void ReportByProductNameDataFound() 
+        public void ReportByProductNameDataFound()
         {
             clsStockCollection FilteredProducts = new clsStockCollection();
             Boolean OK = true;
             //apply a product name that doesn't exist
-            FilteredProducts.ReportByProductName("Test");
+            FilteredProducts.ReportByProductName("Galaxy S24 Ultra");
             //check that the correct number of records are found
             if (FilteredProducts.Count == 2)
             {
-                if (FilteredProducts.ProductList[0].ProductID != 8)
+                if (FilteredProducts.ProductList[0].ProductID != 2)
                 {
                     OK = false;
                 }
-                if (FilteredProducts.ProductList[0].ProductID != 24)
+                if (FilteredProducts.ProductList[1].ProductID != 29)
                 {
                     OK = false;
                 }
