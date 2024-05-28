@@ -7,6 +7,8 @@ namespace Testing5
     [TestClass]
     public class tstSupplier
     {
+        public object AnSupplier { get; private set; }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -38,7 +40,7 @@ namespace Testing5
             //assign the data to the property 
             AnSupplier.Active = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnSupplier.Active, TestData);
+            Assert.AreEqual(AnSupplier.QualityAssurance, TestData);
         }
 
         [TestMethod]
@@ -47,7 +49,7 @@ namespace Testing5
             //create an instance of the class we want to create
             clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            DateTime TestData = DateTime.Now.Date;
+            DateTime TestData = DateTime.Now.Date; 
             //assign the data to the property
             AnSupplier.DeliveryDate = TestData;
             //test to see that the two values are the same
@@ -60,11 +62,11 @@ namespace Testing5
             //create an instance of the class we want to create 
             clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 8;
             //assign the data to the property
             AnSupplier.SupplierId = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnSupplier.SupplierId, TestData);
+            Assert.AreEqual(AnSupplier.QuantityOrdered, TestData);
         }
 
         [TestMethod]
@@ -73,9 +75,9 @@ namespace Testing5
             //create an instance of the class we want to create 
             clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            string TestData = "le56rh";
             //assign the data to the property
-            AnSupplier.Postcode = TestData;
+            AnSupplier.Postcode = TestData; 
             //test to see that the two values are the same 
             Assert.AreEqual(AnSupplier.Postcode, TestData);
         }
@@ -86,7 +88,7 @@ namespace Testing5
             //create an instance of the class we want to create 
             clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            string TestData = "21b";
+            string TestData = "9jhbhvfy";
             //assign the data to the property
             AnSupplier.Address = TestData;
             //test to see that the two values are the same 
@@ -97,19 +99,46 @@ namespace Testing5
         public void ContactPhonePropertyOK()
         {
             //create an instance of the class we want to create
-            clsSupplier clsSupplier = new clsSupplier();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
             string TestData = "072632762";
             //assign the data to the property
             AnSupplier.ContactPhone = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnSupplier.ContactPhone, TestData);
+        }
+
+        [TestMethod]
+        public void EmailPropertyOK()
+        {
+            //create an instance of the class we want to create 
+            clsSupplier AnSupplier = new clsSupplier();
+            //create some test data to assign to the property
+            string TestData = "hhfh@gmail";
+            //assign the data to the property
+            AnSupplier.Email = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnSupplier.Email, TestData);
+        }
+
+        [TestMethod]
+        public void CompanyNamePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplier AnSupplier = new clsSupplier();
+            //create some test data to assign to the property
+            string TestData = "hfchf";
+            //assign the data to the property
+            AnSupplier.CompanyName = TestData;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AnSupplier.CompanyName, TestData);
+        }
 
 
 
         }
 
-            ]
+            
 
         }
 
