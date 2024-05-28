@@ -97,7 +97,7 @@
   <asp:TextBox ID="txtStartDate" runat="server" style="z-index: 1; position: absolute" height="22px" width="128px" CssClass="auto-style7"></asp:TextBox>   
   <asp:CheckBox ID="chkIsOnline" runat="server" style="z-index: 1; left: 23px; top: 208px; position: absolute" Text="Is Online" />
   <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 21px; top: 286px; position: absolute" Text="OK" height="26px" width="60px" CssClass="auto-style17" />
-  <asp:Button ID="btnCancel" runat="server" CssClass="auto-style16" Text="Cancel" height="26px" width="60px" />
+  <asp:Button ID="btnCancel" runat="server" CssClass="auto-style16" Text="Cancel" height="26px" width="60px" OnClick="btnCancel_Click" />
 
   
 

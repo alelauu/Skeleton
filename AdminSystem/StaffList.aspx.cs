@@ -165,4 +165,9 @@ public partial class _1_List : System.Web.UI.Page
     {
         Response.Redirect("StaffStatistics.aspx");
     }
+
+    protected void btnMainPage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
