@@ -97,4 +97,9 @@ public partial class _1_List : System.Web.UI.Page
     {
         Response.Redirect("OrdersStatistics.aspx");
     }
+
+    protected void btnReturnMain_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }

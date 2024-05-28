@@ -121,4 +121,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtOrderDate.Text = Orders.ThisOrder.OrderDate.ToString();
         chkIsReturned.Checked = Orders.ThisOrder.IsReturned;
     }
+
+    protected void btnMain_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrdersList.aspx");
+
+    }
 }
