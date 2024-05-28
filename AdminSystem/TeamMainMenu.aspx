@@ -16,11 +16,11 @@
 
         </div>
         <p>
-            <asp:Button ID="btnStock" runat="server" height="26px" style="z-index: 1; left: 40px; top: 89px; position: absolute" Text="Stock" width="71px" />
-            <asp:Button ID="btnStaff" runat="server" height="26px" style="z-index: 1; left: 443px; top: 89px; position: absolute" Text="Staff" width="71px" />
-            <asp:Button ID="btnSuppliers" runat="server" height="26px" style="z-index: 1; left: 916px; top: 89px; position: absolute; width: 71px" Text="Suppliers" />
-            <asp:Button ID="btnOrders" runat="server" height="26px" style="z-index: 1; left: 225px; top: 89px; position: absolute" Text="Orders" width="71px" />
-            <asp:Button ID="btnCustomers" runat="server" height="26px" style="z-index: 1; left: 667px; top: 89px; position: absolute; width: 71px" Text="Customers" />
+            <asp:Button ID="btnStock" runat="server" height="26px" style="z-index: 1; left: 40px; top: 89px; position: absolute" Text="Stock" width="71px" OnClick="btnStock_Click" />
+            <asp:Button ID="btnStaff" runat="server" height="26px" style="z-index: 1; left: 443px; top: 89px; position: absolute" Text="Staff" width="71px" OnClick="btnStaff_Click" />
+            <asp:Button ID="btnSuppliers" runat="server" height="26px" style="z-index: 1; left: 916px; top: 89px; position: absolute; width: 71px" Text="Suppliers" OnClick="btnSuppliers_Click" />
+            <asp:Button ID="btnOrders" runat="server" height="26px" style="z-index: 1; left: 225px; top: 89px; position: absolute" Text="Orders" width="71px" OnClick="btnOrders_Click" />
+            <asp:Button ID="btnCustomers" runat="server" height="26px" style="z-index: 1; left: 667px; top: 89px; position: absolute; width: 81px" Text="Customers" OnClick="btnCustomers_Click" />
         </p>
     </form>
 </body>
