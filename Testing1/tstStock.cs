@@ -1,8 +1,10 @@
-﻿using ClassLibrary;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
 using System;
-using System.IO;
-using System.Net;
+//using System.IO;
+//using System.Net;
+using System.Data;
+using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Testing1
 {
@@ -661,5 +663,31 @@ namespace Testing1
             Error = ProductOne.Valid(ProductName, ProductBrand, ProductColour, ProductCapacity, DateAdded);
             Assert.AreNotEqual(Error, "");
         }
+        [TestMethod]
+        public void StatStatisticsGroupedByCapacity()
+        {
+            //create an instance of the class we want to create
+            clsProduct ProductOne = new clsProduct();
+            //invoke the method
+            DataTable dT = ProductOne.StatisticsGroupedByCapacity();
+            //according to the last executed stored procedure, there should be four rows of data
+            int noOfRecord = 4;
+            //test to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+        [TestMethod]
+        public void StatStatisticsGroupedByAddedDate()
+        {
+            //create an instance of the class we want to create
+            clsProduct ProductOne = new clsProduct();
+            
+            //invoke the method
+            DataTable dT = ProductOne.StatisticsGroupedAddedDate();
+            //according to the last executed stored procedure, there should be six rows of data
+            int noOfRecord = 7;
+            //test to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+
     }
 }

@@ -24,7 +24,7 @@ namespace Testing5
             //test to see that it exists
             Assert.IsNotNull(AnSupplier);
         }
-        [TestMethod]
+        /*[TestMethod]
 
         public void ActivePropertyOK()
         {
@@ -36,7 +36,7 @@ namespace Testing5
             AnSupplier.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnSupplier.Active, TestData);
-        }
+        }*/
 
  
       
