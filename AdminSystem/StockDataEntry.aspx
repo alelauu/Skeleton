@@ -25,7 +25,7 @@
             <asp:Label ID="lblProductName0" runat="server" style="z-index: 1; left: 10px; top: 47px; position: absolute; height: 19px; width: 114px;" Text="Product Name"></asp:Label>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 333px; top: 14px; position: absolute" Text="Find" />
             <asp:Label ID="lblProductPrice" runat="server" style="z-index: 1; left: 10px; top: 171px; position: absolute; width: 141px;" Text="Product Price" height="19px"></asp:Label>
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 89px; top: 311px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 89px; top: 311px; position: absolute" Text="Cancel" />
             
 
             <asp:TextBox ID="txtDateAdded" runat="server" height="22px" style="z-index: 1; left: 168px; top: 197px; position: absolute; " width="128px"></asp:TextBox>
