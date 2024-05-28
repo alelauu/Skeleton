@@ -7,7 +7,8 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 638px;
+            height: 653px;
+            width: 983px;
         }
     </style>
 </head>
@@ -36,9 +37,10 @@
         <p>
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 9px; top: 754px; position: absolute" Text="Apply Filter" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 143px; top: 753px; position: absolute" Text="Clear Filter" />
+            <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 143px; top: 754px; position: absolute" Text="Clear Filter" />
         </p>
-        <asp:Button ID="btnStatistics" runat="server" OnClick="btnStatistics_Click" style="z-index: 1; left: 276px; top: 752px; position: absolute" Text="Statistics Page" />
+        <asp:Button ID="btnStatistics" runat="server" OnClick="btnStatistics_Click" style="z-index: 1; left: 276px; top: 754px; position: absolute" Text="Statistics Page" />
+        <asp:Button ID="btnMainPage" runat="server" style="z-index: 1; left: 455px; top: 754px; position: absolute; width: 181px" Text="Return to Main page" OnClick="btnMainPage_Click" />
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 810px; position: absolute" Text="[lblError]"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
