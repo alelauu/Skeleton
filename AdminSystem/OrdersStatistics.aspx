@@ -20,7 +20,11 @@
                 </asp:GridView>
             
         </div>
-        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 20px; top: 505px; position: absolute" Text="Back to Previous Page" />
+        <p>
+            &nbsp;</p>
+        <p>
+        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 9px; top: 570px; position: absolute; height: 27px; width: 197px;" Text="Back to Previous Page" />
+        </p>
     </form>
 </body>
 </html>
