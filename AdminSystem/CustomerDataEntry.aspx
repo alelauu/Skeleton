@@ -30,13 +30,13 @@
             <asp:TextBox ID="txtStreetAddress" runat="server" OnTextChanged="TextBox7_TextChanged" style="z-index: 1; left: 133px; top: 289px; position: absolute; height: 19px; width: 152px"></asp:TextBox>
         </p>
         <p>
-            <asp:TextBox ID="txtDateOfBirth" runat="server" style="z-index: 1; left: 129px; top: 397px; position: absolute; width: 152px" height="19px"></asp:TextBox>
+            <asp:TextBox ID="txtDateOfBirth" runat="server" style="z-index: 1; left: 138px; top: 397px; position: absolute; width: 152px" height="19px"></asp:TextBox>
             <asp:Label ID="lblStreetAddress" runat="server" style="z-index: 1; left: 12px; position: absolute; height: 21px; top: 290px; width: 96px" Text="Street Address"></asp:Label>
         </p>
         <p>
             <asp:Label ID="lblEmail" runat="server" style="z-index: 1; left: 16px; top: 337px; position: absolute; height: 28px; width: 84px; margin-top: 0px" Text="Email"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" style="z-index: 1; left: 127px; top: 339px; position: absolute; height: 19px; width: 152px; margin-bottom: 0px"></asp:TextBox>
-            <asp:Label ID="lblDoB" runat="server" style="z-index: 1; left: 15px; position: absolute; height: 22px; width: 84px; top: 368px; margin-top: 31px; margin-bottom: 0px" Text="Date Of Birth"></asp:Label>
+            <asp:Label ID="lblDoB" runat="server" style="z-index: 1; left: 15px; position: absolute; height: 22px; width: 95px; top: 368px; margin-top: 31px; margin-bottom: 0px" Text="Date Of Birth"></asp:Label>
         </p>
         <p>
             <asp:Button ID="BtnCancel" runat="server" style="z-index: 1; left: 78px; top: 540px; position: absolute; height: 22px; width: 54px" Text="Cancel" />
