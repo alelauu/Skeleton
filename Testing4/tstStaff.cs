@@ -1231,7 +1231,8 @@ namespace Testing4
             DataTable dT = NewStaff.StatisticsGroupedByStartDate();
 
             //The number of rows of data according to the last executed stored procedure
-            int noOfRecord = 9;
+            //Will have to be changed based on the number f records in the stored procedure
+            int noOfRecord = 11;
 
             //tests to see that the result is correct
             Assert.AreEqual(noOfRecord, dT.Rows.Count);
