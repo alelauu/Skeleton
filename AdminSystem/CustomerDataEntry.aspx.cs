@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,7 +35,35 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        clsCustomer AnCustomer = new clsCustomer();
+        AnCustomer.FullName = txtFullName.Text;
+        AnCustomer.Email = txtEmail.Text;
+        AnCustomer.PostCode = txtPostCode.Text;
+        AnCustomer.IsOnline = chkIsOnline.Checked;
+        AnCustomer.DateOfBirth = Convert.ToDateTime(DateTime.Now);
+        AnCustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        AnCustomer.StreetAddress = txtStreetAddress.Text;
+        AnCustomer.PhoneNumber = txtPhoneNumber.Text;
         //navigate to the view page 
-        Response.Redirect("CustomerBookViewer.aspx");
+        Response.Redirect("CustomerViewer.aspx");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        clsCustomer AnCustomer = new clsCustomer();
+        Int32 CustomerId;
+        Boolean Found = false;
+        CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        Found = AnCustomer.Find(CustomerId);
+        if (Found == true)
+        {
+            txtFullName.Text = AnCustomer.FullName;
+            txtStreetAddress.Text = AnCustomer.StreetAddress;
+            txtEmail.Text = AnCustomer.Email;
+            txtPhoneNumber.Text = AnCustomer.PhoneNumber;
+            txtPostCode.Text = AnCustomer.PostCode;
+            txtDateOfBirth.Text = AnCustomer.DateOfBirth.ToString();
+            chkIsOnline.Checked = AnCustomer.IsOnline;
+        }
     }
 }
