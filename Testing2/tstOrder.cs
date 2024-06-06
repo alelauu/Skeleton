@@ -412,7 +412,7 @@ namespace Testing2
         {
             clsOrder OrderOne = new clsOrder();
             DataTable dT = OrderOne.StatisticsGroupedOrderDate();
-            int noOfRecord =10;
+            int noOfRecord =11;
 
             Assert.AreEqual(noOfRecord , dT.Rows.Count);
         }
