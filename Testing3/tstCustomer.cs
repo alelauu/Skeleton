@@ -241,7 +241,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 CustomerId = 21;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.StreetAddress != "33 South St")
+            if (AnCustomer.StreetAddress != "3 South St")
             {
                 OK = false;
             }
@@ -255,7 +255,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 CustomerId = 21;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.PostCode != "BN1 3AS")
+            if (AnCustomer.PostCode != "LE3 5AU")
             {
                 OK = false;
 

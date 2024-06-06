@@ -8,18 +8,27 @@ namespace ClassLibrary
         private Int32 mCustomerId;
         public bool Find(int customerId)
         {
-            mCustomerId = 21;
-            mDateOfBirth = Convert.ToDateTime("11/07/2004");
-            mFullName = "Amenaghawon";
-            mStreetAddress = "3 South St";
-            mPostCode = "LE3 5AU";
-            mEmail = "P2718902@my365.dmu.ac.uk";
-            mPhoneNumber = "07360093312";
-            mIsOnline = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerId", customerId);
+            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
+            if (DB.Count == 1)
+            {
+                CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                FullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                StreetAddress = Convert.ToString(DB.DataTable.Rows[0]["StreetAddress"]);
+                PostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                Email = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                PhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                IsOnline = Convert.ToBoolean(DB.DataTable.Rows[0]["IsOnline"]);
+                DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
-    
         public Int32 CustomerId
         {
             get
