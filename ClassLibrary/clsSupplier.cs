@@ -179,19 +179,37 @@ namespace ClassLibrary
 
         public bool Find(int supplierId)
         {
-            //set the private data members to the test data value
-            mSupplierId = 21;
-            mDeliveryDate = Convert.ToDateTime("23/12/2022");
-            mQuantityOrdered = 67;
-            mActive = true;
-            mQualityAssurance = true;
-            mPostCode = "le34pa";
-            mAddress = "535 st saviours road";
-            mContactPhone = "07865491211";
-            mEmail = "sadjsa@gmail.com";
-            mCompanyName = "ajsdjashd";
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address id to search for
+            DB.AddParameter("SupplierId", supplierId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblSupplier_FilterByAddressId");
+            //if one record is found (there should be either one ore zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private members
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                mDeliveryDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DeliveryDate"]);
+                mQuantityOrdered = Convert.ToInt32(DB.DataTable.Rows[0]["QuantityOrdered"]);
+                //mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mQualityAssurance = Convert.ToBoolean(DB.DataTable.Rows[0]["QualityAssurance"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mContactPhone = Convert.ToString(DB.DataTable.Rows[0]["ContactPhone"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mCompanyName = Convert.ToString(DB.DataTable.Rows[0]["CompanyName"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+
+                //return false indicating there is a problem
+                return false;
+            }
+
         }
 
 
