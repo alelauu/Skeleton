@@ -6,29 +6,7 @@ namespace ClassLibrary
     public class clsCustomer
     {
         private Int32 mCustomerId;
-        public bool Find(int customerId)
-        {
-            clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@CustomerId", customerId);
-            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
-            if (DB.Count == 1)
-            {
-                CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
-                FullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
-                StreetAddress = Convert.ToString(DB.DataTable.Rows[0]["StreetAddress"]);
-                PostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
-                Email = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                PhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
-                IsOnline = Convert.ToBoolean(DB.DataTable.Rows[0]["IsOnline"]);
-                DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
 
-        }
         public Int32 CustomerId
         {
             get
@@ -136,6 +114,20 @@ namespace ClassLibrary
                 mIsOnline = value;
             }
 
+        }
+
+        public bool Find(int customerId)
+        {
+            mCustomerId = 21;
+            mDateOfBirth = Convert.ToDateTime("23/12/2022");
+            mIsOnline = true;
+            mFullName = "Amenaghawon";
+            mPostCode = "BN1 3AS";
+            mEmail = "P2718902@my365.dmu.ac.uk";
+            mStreetAddress = "33 South St";
+            mPhoneNumber = "07360093312";
+
+            return true;
         }
     }
 
