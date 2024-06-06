@@ -25,6 +25,7 @@ public class clsDataConnection
     DataTable dataTable = new DataTable();
     //string variable used to store the connection string
     private string connectionString;
+    internal object DateTable;
 
     public clsDataConnection()
     {

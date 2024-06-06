@@ -15,13 +15,14 @@
             <asp:TextBox ID="txtFullName" runat="server" OnTextChanged="TextBox4_TextChanged" style="z-index: 1; left: 121px; top: 118px; position: absolute; width: 152px" height="19px"></asp:TextBox>
             <asp:Label ID="lblFullName" runat="server" style="z-index: 1; left: 10px; top: 118px; position: absolute; right: 455px; height: 16px" Text="Full Name" width="84px"></asp:Label>
             <asp:TextBox ID="txtCustomerId" runat="server" OnTextChanged="TextBox2_TextChanged" style="z-index: 1; top: 61px; position: absolute; height: 19px; width: 152px; left: 123px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Height="33px" OnClick="Button1_Click" style="margin-left: 408px; margin-top: 5px" Text="Find" Width="78px" />
         </p>
         <p>
             <asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TextBox5_TextChanged" style="z-index: 1; left: 122px; top: 176px; position: absolute; height: 19px; width: 152px"></asp:TextBox>
         </p>
         <p>
             &nbsp;</p>
-        <asp:Label ID="lblPhoneNumber" runat="server" style="z-index: 1; left: 13px; top: 180px; position: absolute; height: 17px; width: 84px" Text="PhoneNumber"></asp:Label>
+        <asp:Label ID="lblPhoneNumber" runat="server" style="z-index: 1; left: 12px; top: 180px; position: absolute; height: 17px; width: 85px" Text="PhoneNumber"></asp:Label>
         <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 124px; top: 233px; position: absolute; width: 152px" height="19px"></asp:TextBox>
         <asp:Label ID="lblPostCode" runat="server" style="z-index: 1; left: 15px; top: 234px; position: absolute; height: 18px; width: 84px" Text="Post Code"></asp:Label>
         <p>
