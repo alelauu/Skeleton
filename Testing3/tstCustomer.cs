@@ -156,7 +156,9 @@ namespace Testing3
             Assert.IsTrue(Found);
 
         }
+
         [TestMethod]
+
         public void TestCustomerIdFound()
         {
             clsCustomer AnCustomer = new clsCustomer();
@@ -169,9 +171,11 @@ namespace Testing3
                 OK = false;
             }
             Assert.IsTrue(OK);
+
         }
 
         [TestMethod]
+
         public void TestDateOfBirthFound()
         {
             clsCustomer AnCustomer = new clsCustomer();
@@ -179,16 +183,33 @@ namespace Testing3
             Boolean OK = true;
             Int32 CustomerId = 21;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.DateOfBirth != Convert.ToDateTime("11/07/2004"))
+            if (AnCustomer.DateOfBirth != Convert.ToDateTime("23/12/2022"))
             {
                 OK = false;
-
             }
             Assert.IsTrue(OK);
 
         }
+
         [TestMethod]
-        public void TestFullNameFound()
+
+        public void TestIsOnlineFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.IsOnline != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+
+        public void TestFullName()
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
@@ -198,28 +219,28 @@ namespace Testing3
             if (AnCustomer.FullName != "Amenaghawon")
             {
                 OK = false;
-
             }
             Assert.IsTrue(OK);
 
         }
+
         [TestMethod]
-        public void TestPhoneNumberFound()
+
+        public void TestPostCode()
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
             Int32 CustomerId = 21;
             Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.PhoneNumber != "07360093312")
+            if (AnCustomer.PostCode != "BN1 3AS")
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
-
         }
-        [TestMethod]
-        public void TestEmailFound()
+
+        public void TestEmail()
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
@@ -233,36 +254,35 @@ namespace Testing3
             Assert.IsTrue(OK);
 
         }
-        [TestMethod]
-        public void TestStreetAddressFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            Int32 CustomerId = 21;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.StreetAddress != "3 South St")
-            {
-                OK = false;
-            }
-            Assert.IsTrue(OK);
-        }
-        [TestMethod]
-        public void TestPostCodeFound()
-        {
-            clsCustomer AnCustomer = new clsCustomer();
-            Boolean Found = false;
-            Boolean OK = true;
-            Int32 CustomerId = 21;
-            Found = AnCustomer.Find(CustomerId);
-            if (AnCustomer.PostCode != "LE3 5AU")
-            {
-                OK = false;
 
+        public void TestStreetAddress()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.StreetAddress != "33 South St")
+            {
+                OK = false;
             }
             Assert.IsTrue(OK);
         }
-        
-    } 
+
+        public void TestPhoneNumber()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.PhoneNumber != "07360093312")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+
+        }
+    }
 }
-
