@@ -15,10 +15,11 @@
             <asp:TextBox ID="txtFullName" runat="server" OnTextChanged="TextBox4_TextChanged" style="z-index: 1; left: 121px; top: 118px; position: absolute; width: 152px" height="19px"></asp:TextBox>
             <asp:Label ID="lblFullName" runat="server" style="z-index: 1; left: 10px; top: 118px; position: absolute; right: 455px; height: 16px" Text="Full Name" width="84px"></asp:Label>
             <asp:TextBox ID="txtCustomerId" runat="server" OnTextChanged="TextBox2_TextChanged" style="z-index: 1; top: 61px; position: absolute; height: 19px; width: 152px; left: 123px"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" Height="33px" OnClick="Button1_Click" style="margin-left: 408px; margin-top: 5px" Text="Find" Width="78px" />
+            
         </p>
         <p>
             <asp:TextBox ID="txtPhoneNumber" runat="server" OnTextChanged="TextBox5_TextChanged" style="z-index: 1; left: 122px; top: 176px; position: absolute; height: 19px; width: 152px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="margin-left: 392px" Text="Find" />
         </p>
         <p>
             &nbsp;</p>
@@ -48,7 +49,7 @@
         <p>
             &nbsp;</p>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 498px; position: absolute; height: 21px; width: 73px"></asp:Label>
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 17px; top: 536px; position: absolute; width: 30px; height: 32px" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 17px; top: 536px; position: absolute; width: 30px; " Text="OK" />
     </form>
 </body>
 </html>

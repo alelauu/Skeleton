@@ -36,19 +36,35 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsCustomer AnCustomer = new clsCustomer();
-        AnCustomer.FullName = txtFullName.Text;
-        AnCustomer.Email = txtEmail.Text;
-        AnCustomer.PostCode = txtPostCode.Text;
-        AnCustomer.IsOnline = chkIsOnline.Checked;
-        AnCustomer.DateOfBirth = Convert.ToDateTime(DateTime.Now);
-        AnCustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
-        AnCustomer.StreetAddress = txtStreetAddress.Text;
-        AnCustomer.PhoneNumber = txtPhoneNumber.Text;
-        //navigate to the view page 
-        Response.Redirect("CustomerViewer.aspx");
+        string FullName = txtFullName.Text;
+        string Email = txtEmail.Text;
+        string PostCode = txtPostCode.Text;
+        string IsOnline = chkIsOnline.Text;
+        string DateOfBirth = txtDateOfBirth.Text;
+        //string CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        string StreetAddress = txtStreetAddress.Text;
+        string PhoneNumber = txtPhoneNumber.Text;
+        string Error = "";
+        Error = AnCustomer.Valid(DateOfBirth, FullName, StreetAddress, PostCode, Email, PhoneNumber);
+        if (Error == "")
+        {
+            AnCustomer.FullName = FullName;
+            AnCustomer.Email = Email;
+            AnCustomer.PostCode = PostCode;
+            AnCustomer.PhoneNumber = PhoneNumber;
+            AnCustomer.StreetAddress = StreetAddress;
+            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            Session["AnCustomer"] = AnCustomer;
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+
+    protected void btnFind_Click(object sender, EventArgs e)
     {
         clsCustomer AnCustomer = new clsCustomer();
         Int32 CustomerId;
@@ -67,3 +83,5 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 }
+
+ 
