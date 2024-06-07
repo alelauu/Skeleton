@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Xml.Schema;
 
 namespace ClassLibrary
@@ -164,10 +166,7 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
-
-
-
-
+            DateTime DateTemp;
 
 
             // Validate description
@@ -180,6 +179,53 @@ namespace ClassLibrary
                 Error += "The full name must be less tham 6 charcters : ";
             }
 
+
+            if (string.IsNullOrEmpty(PostCode))
+            {
+                Error += "The post code no be blank : ";
+            }
+            else if (PostCode.Length > 50)
+            {
+                Error += "The post code must be less tham 6 charcters : ";
+            }
+
+
+            if (string.IsNullOrEmpty(StreetAddress))
+            {
+                Error += "The Street Address no be blank : ";
+            }
+            else if (StreetAddress.Length > 50)
+            {
+                Error += "The Street Address must be less tham 6 charcters : ";
+
+            }
+
+            if (string.IsNullOrEmpty(Email))
+            {
+                Error += "The Email no be blank : ";
+            }
+            else if (Email.Length > 50)
+            {
+                Error += "The Email must be less tham 6 charcters : ";
+
+            }
+
+            if (string.IsNullOrEmpty(PhoneNumber))
+            {
+                Error += "The Phone Number no be blank : ";
+            }
+            else if (PhoneNumber.Length > 50)
+            {
+                Error += "The Phone Number must be less tham 6 charcters : ";
+
+            }
+            DateTemp = Convert.ToDateTime(DateOfBirth);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the past :";
+
+            }
+            
 
 
 
